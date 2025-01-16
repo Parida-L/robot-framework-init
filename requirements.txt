@@ -1,0 +1,17 @@
+# Robot Framework Core
+robotframework
+
+# Bibliothèque pour les tests avec Selenium (si nécessaire)
+robotframework-seleniumlibrary
+
+# Bibliothèque pour les tests basés sur le navigateur (si nécessaire)
+robotframework-browser
+
+# Bibliothèque pour les tests d'API REST (si nécessaire)
+robotframework-requests
+
+# Bibliothèque pour les tests de base de données (si nécessaire)
+robotframework-databaselibrary
+
+# Outil pour des rapports améliorés (optionnel)
+allure-robotframework

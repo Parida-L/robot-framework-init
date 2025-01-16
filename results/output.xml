@@ -1,71 +1,159 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2 (Python 3.13.1 on win32)" generated="2025-01-16T16:39:28.553398" rpa="false" schemaversion="5">
-<suite id="s1" name="Robot-Framework-Init" source="C:\Users\Administrateur\Desktop\robot-framework-init">
-<suite id="s1-s1" name="Web" source="C:\Users\Administrateur\Desktop\robot-framework-init\Web">
-<suite id="s1-s1-s1" name="Tests" source="C:\Users\Administrateur\Desktop\robot-framework-init\Web\Tests">
-<suite id="s1-s1-s1-s1" name="Test Saucedemo" source="C:\Users\Administrateur\Desktop\robot-framework-init\Web\Tests\test_saucedemo.robot">
-<test id="s1-s1-s1-s1-t1" name="Login With Standard User Profile" line="7">
+<robot generator="Robot 7.2 (Python 3.13.1 on win32)" generated="2025-01-16T20:35:57.183136" rpa="false" schemaversion="5">
+<suite id="s1" name="Robot-Framework-Init" source="C:\Users\parida\Desktop\M2i\robot-framework-init">
+<suite id="s1-s1" name="Tests" source="C:\Users\parida\Desktop\M2i\robot-framework-init\tests">
+<suite id="s1-s1-s1" name="Test Decath" source="C:\Users\parida\Desktop\M2i\robot-framework-init\tests\test_decath.robot">
+<test id="s1-s1-s1-t1" name="Search And Add To Cart" line="7">
 <kw name="Open Website Homepage" owner="keywords_common">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-01-16T16:39:28.784969" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<msg time="2025-01-16T20:35:57.487993" level="INFO">Opening browser 'chrome' to base url 'https://www.decathlon.fr'.</msg>
 <arg>${url}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-01-16T16:39:28.784538" elapsed="1.727043"/>
+<status status="PASS" start="2025-01-16T20:35:57.487514" elapsed="4.120387"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-01-16T16:39:30.511816" elapsed="0.024994"/>
+<status status="PASS" start="2025-01-16T20:36:01.608285" elapsed="0.140600"/>
 </kw>
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>css=body</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-16T16:39:30.537621" elapsed="0.017872"/>
+<status status="PASS" start="2025-01-16T20:36:01.749229" elapsed="0.038985"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
 <arg>text=${site_name}</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-16T16:39:30.555858" elapsed="0.014842"/>
+<status status="PASS" start="2025-01-16T20:36:01.788432" elapsed="0.017048"/>
 </kw>
-<arg>${BASE_URL}[sd]</arg>
-<arg>${SITE_NAME}[sd]</arg>
-<doc>Open the Decathlon homepage.</doc>
-<status status="PASS" start="2025-01-16T16:39:28.782623" elapsed="1.788359"/>
+<arg>${BASE_URL}[dct]</arg>
+<arg>${SITE_NAME}[dct]</arg>
+<doc>Open the website homepage.</doc>
+<status status="PASS" start="2025-01-16T20:35:57.485902" elapsed="4.319752"/>
 </kw>
+<kw name="Handle Cookies Banner" owner="keywords_common">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-01-16T20:36:01.833382" level="INFO">Element '//*[@id="didomi-notice-agree-button"]' is displayed.</msg>
+<arg>${cookie_locator}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-16T20:36:01.806873" elapsed="0.026889"/>
+</kw>
+<msg time="2025-01-16T20:36:01.834051" level="INFO">${is_cookie_displayed} = True</msg>
+<var>${is_cookie_displayed}</var>
+<arg>Element Should Be Visible</arg>
+<arg>${cookie_locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-01-16T20:36:01.806590" elapsed="0.027680"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_cookie_displayed}">
+<kw name="Handle Cookie Action" owner="keywords_common">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>locator=${cookie_locator}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-16T20:36:01.836051" elapsed="0.011495"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-16T20:36:01.848939" level="INFO">Clicking element '//*[@id="didomi-notice-agree-button"]'.</msg>
+<arg>locator=${cookie_locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-16T20:36:01.848273" elapsed="0.156077"/>
+</kw>
+<arg>${cookie_locator}</arg>
+<doc>Perform the specified cookie action (accept/reject) using the given locator.</doc>
+<status status="PASS" start="2025-01-16T20:36:01.835395" elapsed="0.169221"/>
+</kw>
+<status status="PASS" start="2025-01-16T20:36:01.834596" elapsed="0.170142"/>
+</branch>
+<status status="PASS" start="2025-01-16T20:36:01.834516" elapsed="0.170329"/>
+</if>
+<arg>${COOKIES_OK}[dct]</arg>
+<doc>Handle cookies dynamically based on the provided action and cookie locator.</doc>
+<status status="PASS" start="2025-01-16T20:36:01.806101" elapsed="0.198835"/>
+</kw>
+<kw name="Search For Item" owner="keywords_decath">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-01-16T16:39:30.571792" level="FAIL">String '${USERNAME_INPUT}' used with invalid index 'std'. To use '[std]' as a literal value, it needs to be escaped like '\[std]'.</msg>
-<arg>locator=${USERNAME_INPUT}[std]</arg>
-<arg>text=${SD_USERNAME}[std]</arg>
+<msg time="2025-01-16T20:36:02.006617" level="INFO">Typing text 'bonnet' into text field 'css=[type="search"]'.</msg>
+<arg>css=[type="search"]</arg>
+<arg>text=${item}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="FAIL" start="2025-01-16T16:39:30.571319" elapsed="0.001175">String '${USERNAME_INPUT}' used with invalid index 'std'. To use '[std]' as a literal value, it needs to be escaped like '\[std]'.</status>
+<status status="PASS" start="2025-01-16T20:36:02.006140" elapsed="0.817767"/>
 </kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<arg>locator=${PWD_INPUT}</arg>
-<arg>password=${PASSWORD}[sd]</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-01-16T16:39:30.573006" elapsed="0.000189"/>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-01-16T20:36:02.824993" level="INFO">Sending key(s) ('RETURN',) to css=[type="search"] element.</msg>
+<msg time="2025-01-16T20:36:03.135854" level="INFO">Pressing special key RETURN to element.</msg>
+<msg time="2025-01-16T20:36:03.136182" level="INFO">Releasing special key RETURN.</msg>
+<arg>css=[type="search"]</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-01-16T20:36:02.824267" elapsed="3.120045"/>
 </kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<arg>locator=${SUBMIT_BTN_LOGIN}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-01-16T16:39:30.573580" elapsed="0.000305"/>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css=.product-list</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-16T20:36:05.944617" elapsed="0.052109"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>text=${SITE_NAME}[sd]</arg>
+<arg>${item}</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="NOT RUN" start="2025-01-16T16:39:30.574248" elapsed="0.000261"/>
+<status status="PASS" start="2025-01-16T20:36:05.997042" elapsed="0.033049"/>
 </kw>
-<doc>This test verifies the user can log in successfully to with their credentials</doc>
-<status status="FAIL" start="2025-01-16T16:39:28.781589" elapsed="1.793488">String '${USERNAME_INPUT}' used with invalid index 'std'. To use '[std]' as a literal value, it needs to be escaped like '\[std]'.</status>
+<arg>${SEARCH_TERM}[dct]</arg>
+<doc>Search for an item on the Decathlon website.</doc>
+<status status="PASS" start="2025-01-16T20:36:02.005438" elapsed="4.024936"/>
+</kw>
+<kw name="Add First Item To Cart" owner="keywords_decath">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-16T20:36:06.032024" level="INFO">Clicking element '//*[@id="app"]/main/div[2]/section[2]/div/div[1]'.</msg>
+<arg>${ITEM_LOCATOR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-16T20:36:06.031468" elapsed="1.251645"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-01-16T20:36:07.284002" level="INFO">Clicking button '//*[@id="app"]/main/div[2]/section[2]/div/div[1]/div[4]/div/div/button'.</msg>
+<msg time="2025-01-16T20:36:08.344683" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-34.png"&gt;&lt;img src="selenium-screenshot-34.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-01-16T20:36:08.345089" level="FAIL">Button with locator '//*[@id="app"]/main/div[2]/section[2]/div/div[1]/div[4]/div/div/button' not found.</msg>
+<arg>${ADD_CART_LOCATOR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="FAIL" start="2025-01-16T20:36:07.283445" elapsed="1.064818">Button with locator '//*[@id="app"]/main/div[2]/section[2]/div/div[1]/div[4]/div/div/button' not found.</status>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>locator=${FIRST_CARD_LOC}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" start="2025-01-16T20:36:08.348507" elapsed="0.000190"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>text=${ITEM_TITLE}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" start="2025-01-16T20:36:08.348945" elapsed="0.000147"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>locator=${ADD_BTN}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" start="2025-01-16T20:36:08.349218" elapsed="0.000118"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>locator=${ADD_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-01-16T20:36:08.349450" elapsed="0.000101"/>
+</kw>
+<doc>Add the first displayed item to the cart.</doc>
+<status status="FAIL" start="2025-01-16T20:36:06.030821" elapsed="2.318885">Button with locator '//*[@id="app"]/main/div[2]/section[2]/div/div[1]/div[4]/div/div/button' not found.</status>
+</kw>
+<kw name="Close Browser" owner="keywords_common">
+<doc>Close the browser.</doc>
+<status status="NOT RUN" start="2025-01-16T20:36:08.350197" elapsed="0.000147"/>
+</kw>
+<doc>This test opens Decathlon, searches for "bonnet," and adds the first displayed item to the cart.</doc>
+<status status="FAIL" start="2025-01-16T20:35:57.484203" elapsed="10.866484">Button with locator '//*[@id="app"]/main/div[2]/section[2]/div/div[1]/div[4]/div/div/button' not found.</status>
 </test>
-<doc>Test cases for RobotFramework with SauceDemo</doc>
-<status status="FAIL" start="2025-01-16T16:39:28.582770" elapsed="1.994648"/>
+<doc>Test case to search for "bonnet" on Decathlon and add the first item to the cart.</doc>
+<status status="FAIL" start="2025-01-16T20:35:57.222738" elapsed="11.129339"/>
 </suite>
-<status status="FAIL" start="2025-01-16T16:39:28.580684" elapsed="1.998602"/>
+<status status="FAIL" start="2025-01-16T20:35:57.219447" elapsed="11.134097"/>
 </suite>
-<status status="FAIL" start="2025-01-16T16:39:28.578454" elapsed="2.001977"/>
-</suite>
-<status status="FAIL" start="2025-01-16T16:39:28.557302" elapsed="2.024008"/>
+<status status="FAIL" start="2025-01-16T20:35:57.188572" elapsed="11.165844"/>
 </suite>
 <statistics>
 <total>
@@ -75,12 +163,10 @@
 </tag>
 <suite>
 <stat name="Robot-Framework-Init" id="s1" pass="0" fail="1" skip="0">Robot-Framework-Init</stat>
-<stat name="Web" id="s1-s1" pass="0" fail="1" skip="0">Robot-Framework-Init.Web</stat>
-<stat name="Tests" id="s1-s1-s1" pass="0" fail="1" skip="0">Robot-Framework-Init.Web.Tests</stat>
-<stat name="Test Saucedemo" id="s1-s1-s1-s1" pass="0" fail="1" skip="0">Robot-Framework-Init.Web.Tests.Test Saucedemo</stat>
+<stat name="Tests" id="s1-s1" pass="0" fail="1" skip="0">Robot-Framework-Init.Tests</stat>
+<stat name="Test Decath" id="s1-s1-s1" pass="0" fail="1" skip="0">Robot-Framework-Init.Tests.Test Decath</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-01-16T16:39:28.584450" level="WARN">Imported resource file 'C:\Users\Administrateur\Desktop\robot-framework-init\Web\Ressources\keywords\keywords_saucedemo.robot' is empty.</msg>
 </errors>
 </robot>

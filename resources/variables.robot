@@ -10,10 +10,10 @@ ${BROWSER}               chrome
 ${TIMEOUT}               10s
 
 #AMAZON
-${LOGIN_ICON}            //*[@id="nav-link-accountList"]
-${LOGIN_TITLE_LOCATOR}   //*[@id="claim-collection-container"]/h1
-${LOGIN_TITLE}           Identifiez-vous ou créez un compte
-${EMAIL_INPUT}           //*[@id="ap_email_login"]
+${LOGIN_LOCATOR}         //*[@id="nav-link-accountList"]
+${LOGIN_INPUT_LOCATOR}   //*[@id="authportal-main-section"]/div[2]/div[2]/div[1]/form/div/div/div/div[1]/label
+${LOGIN_INPUT_NAME}      e-mail
+${LOGIN_INPUT}           //*[@id="ap_email_login"]
 ${EMAIL_ADDRESS}         damien.automatisation@gmail.com 
 &{PASSWORD}              amz=Aa123456!    sd=secret_sauce
 ${CONTINUE_BTN}          //*[@id="continue"]/span/input

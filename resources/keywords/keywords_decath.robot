@@ -3,6 +3,14 @@ Resource         ../libraries.resource
 Resource         ../variables.robot
 
 *** Keywords ***
+Search For Item
+    [Documentation]    Search for an item on the Decathlon website.
+    [Arguments]    ${item}
+    Input Text    css=[type="search"]    text=${item}
+    Press Keys    css=[type="search"]    RETURN
+    Wait Until Page Contains Element    css=.product-list
+    Wait Until Page Contains    ${item}
+    
 Add First Item To Cart
     [Documentation]    Add the first displayed item to the cart.
     Click Element    ${ITEM_LOCATOR}

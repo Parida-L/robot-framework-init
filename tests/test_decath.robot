@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation    Test case to search for "bonnet" on Decathlon and add the first item to the cart.
-Resource         ../Ressources/keywords/keywords_decath.robot
-Resource         ../Ressources/keywords/keywords_common.robot
+Resource         ../resources/keywords/keywords_decath.robot
+Resource         ../resources/keywords/keywords_common.robot
 
 *** Test Cases ***
 Search And Add To Cart

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2 (Python 3.13.1 on win32)" generated="2025-01-16T20:26:50.846527" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests Amazon" source="C:\Users\parida\Desktop\M2i\robot-framework-init\tests\tests_amazon.robot">
+<test id="s1-t1" name="Login to website account" line="7">
+<kw name="Open Website Homepage" owner="keywords_common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-01-16T20:26:51.132847" level="INFO">Opening browser 'chrome' to base url 'https://www.amazon.fr'.</msg>
+<arg>${url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-01-16T20:26:51.132662" elapsed="2.717836"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-01-16T20:26:53.850773" elapsed="0.041088"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css=body</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-16T20:26:53.892130" elapsed="0.050830"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>text=${site_name}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-16T20:26:53.943215" elapsed="0.048099"/>
+</kw>
+<arg>${BASE_URL}[amz]</arg>
+<arg>${SITE_NAME}[amz]</arg>
+<doc>Open the website homepage.</doc>
+<status status="PASS" start="2025-01-16T20:26:51.132111" elapsed="2.859499"/>
+</kw>
+<kw name="Handle Cookies Banner" owner="keywords_common">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-01-16T20:26:54.102447" level="INFO">Element '//*[@id="sp-cc-accept"]' is displayed.</msg>
+<arg>${cookie_locator}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-16T20:26:53.993762" elapsed="0.108826"/>
+</kw>
+<msg time="2025-01-16T20:26:54.102785" level="INFO">${is_cookie_displayed} = True</msg>
+<var>${is_cookie_displayed}</var>
+<arg>Element Should Be Visible</arg>
+<arg>${cookie_locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-01-16T20:26:53.993556" elapsed="0.109272"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_cookie_displayed}">
+<kw name="Handle Cookie Action" owner="keywords_common">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>locator=${cookie_locator}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-16T20:26:54.103728" elapsed="0.021823"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-16T20:26:54.126157" level="INFO">Clicking element '//*[@id="sp-cc-accept"]'.</msg>
+<arg>locator=${cookie_locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-16T20:26:54.125807" elapsed="0.147251"/>
+</kw>
+<arg>${cookie_locator}</arg>
+<doc>Perform the specified cookie action (accept/reject) using the given locator.</doc>
+<status status="PASS" start="2025-01-16T20:26:54.103300" elapsed="0.169910"/>
+</kw>
+<status status="PASS" start="2025-01-16T20:26:54.103002" elapsed="0.170261"/>
+</branch>
+<status status="PASS" start="2025-01-16T20:26:54.102947" elapsed="0.170379"/>
+</if>
+<arg>${COOKIES_OK}[amz]</arg>
+<doc>Handle cookies dynamically based on the provided action and cookie locator.</doc>
+<status status="PASS" start="2025-01-16T20:26:53.993087" elapsed="0.280296"/>
+</kw>
+<kw name="Navigate To Login Page" owner="keywords_common">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>locator=${LOGIN_LOCATOR}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-16T20:26:54.274070" elapsed="0.013910"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-16T20:26:54.288494" level="INFO">Clicking element '//*[@id="nav-link-accountList"]'.</msg>
+<arg>locator=${LOGIN_LOCATOR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-16T20:26:54.288198" elapsed="0.401158"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>text=${LOGIN_INPUT_NAME}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-16T20:26:54.689647" elapsed="0.017092"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>locator=${LOGIN_INPUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-16T20:26:54.706906" elapsed="0.009420"/>
+</kw>
+<doc>Go to the login page</doc>
+<status status="PASS" start="2025-01-16T20:26:54.273754" elapsed="0.442672"/>
+</kw>
+<kw name="Login With Credentials" owner="keywords_common">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>locator=${LOGIN_INPUT}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-16T20:26:54.717220" elapsed="0.006154"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-16T20:26:54.723982" level="INFO">Typing text 'damien.automatisation@gmail.com' into text field '//*[@id="ap_email_login"]'.</msg>
+<arg>locator=${LOGIN_INPUT}</arg>
+<arg>text=${EMAIL_ADDRESS}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-16T20:26:54.723606" elapsed="0.135702"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-01-16T20:26:54.859707" level="INFO">Clicking button '//*[@id="continue"]/span/input'.</msg>
+<arg>locator=${CONTINUE_BTN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-16T20:26:54.859470" elapsed="0.069389"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>text=${EMAIL_ADDRESS}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-16T20:26:54.929123" elapsed="0.783087"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>text=${PASSWORD_INPUT_NAME}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-16T20:26:55.712360" elapsed="0.013371"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-01-16T20:26:55.726128" level="INFO">Typing password into text field '//*[@id="ap_password"]'.</msg>
+<msg time="2025-01-16T20:26:55.757743" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>locator=${PASSWORD_INPUT}</arg>
+<arg>password=${PASSWORD}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-16T20:26:55.725892" elapsed="0.144611"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-01-16T20:26:55.870875" level="INFO">Clicking button '{'amz': '//*[@id="signInSubmit"]', 'sd': '//*[@id="login-button"]'}'.</msg>
+<msg time="2025-01-16T20:26:55.998653" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-18.png"&gt;&lt;img src="selenium-screenshot-18.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-01-16T20:26:55.998933" level="FAIL">Button with locator '{'amz': '//*[@id="signInSubmit"]', 'sd': '//*[@id="login-button"]'}' not found.</msg>
+<arg>locator=${SUBMIT_BTN_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="FAIL" start="2025-01-16T20:26:55.870658" elapsed="0.130794">Button with locator '{'amz': '//*[@id="signInSubmit"]', 'sd': '//*[@id="login-button"]'}' not found.</status>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>text=${WELCOME_TEXT}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" start="2025-01-16T20:26:56.001940" elapsed="0.000062"/>
+</kw>
+<doc>Login with given credentials</doc>
+<status status="FAIL" start="2025-01-16T20:26:54.716840" elapsed="1.285426">Button with locator '{'amz': '//*[@id="signInSubmit"]', 'sd': '//*[@id="login-button"]'}' not found.</status>
+</kw>
+<kw name="Close Browser" owner="keywords_common">
+<doc>Close the browser.</doc>
+<status status="NOT RUN" start="2025-01-16T20:26:56.002776" elapsed="0.000070"/>
+</kw>
+<doc>This test opens Amazon, accept the cookies,and login into their account</doc>
+<status status="FAIL" start="2025-01-16T20:26:51.131435" elapsed="4.871862">Button with locator '{'amz': '//*[@id="signInSubmit"]', 'sd': '//*[@id="login-button"]'}' not found.</status>
+</test>
+<doc>Test case to search for "bonnet" on Decathlon and add the first item to the cart.</doc>
+<status status="FAIL" start="2025-01-16T20:26:50.847823" elapsed="5.156931"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Tests Amazon" id="s1" pass="0" fail="1" skip="0">Tests Amazon</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

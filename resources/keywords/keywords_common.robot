@@ -4,20 +4,31 @@ Resource         ../variables.robot
 
 *** Keywords ***
 Open Website Homepage
-    [Documentation]    Open the Decathlon homepage.
+    [Documentation]    Open the website homepage.
     [Arguments]    ${url}    ${site_name}
     Open Browser    ${url}    ${BROWSER}
     Maximize Browser Window
     Wait Until Page Contains Element    css=body
     Wait Until Page Contains    text=${site_name}
 
-Search For Item
-    [Documentation]    Search for an item on the Decathlon website.
-    [Arguments]    ${item}
-    Input Text    css=[type="search"]    text=${item}
-    Press Keys    css=[type="search"]    RETURN
-    Wait Until Page Contains Element    css=.product-list
-    Wait Until Page Contains    ${item}
+Navigate To Login Page
+    [Documentation]    Go to the login page
+    Wait Until Page Contains Element    locator=${LOGIN_LOCATOR}
+    Click Element    locator=${LOGIN_LOCATOR}
+    Wait Until Page Contains    text=${LOGIN_INPUT_NAME}
+    Wait Until Page Contains Element    locator=${LOGIN_INPUT}
+
+Login With Credentials
+    [Documentation]    Login with given credentials
+    [Arguments]    ${login}    ${password}
+    Wait Until Page Contains Element    locator=${LOGIN_INPUT}
+    Input Text    locator=${LOGIN_INPUT}    text=${EMAIL_ADDRESS}
+    Click Button    locator=${CONTINUE_BTN}
+    Wait Until Page Contains    text=${EMAIL_ADDRESS}
+    Wait Until Page Contains    text=${PASSWORD_INPUT_NAME}
+    Input Password    locator=${PASSWORD_INPUT}    password=${PASSWORD}
+    Click Button    locator=${SUBMIT_BTN_LOGIN}[amz]
+    Wait Until Page Contains    text=${WELCOME_TEXT}
 
 Close Browser
     [Documentation]    Close the browser.

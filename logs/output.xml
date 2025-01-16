@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2 (Python 3.9.21 on linux)" generated="2025-01-16T18:04:47.127711" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="/app/tests">
+<suite id="s1-s1" name="Test1" source="/app/tests/test1.robot">
+<test id="s1-s1-t1" name="Test" line="5">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-01-16T18:04:47.334439" level="INFO">Opening browser 'chrome' to base url 'https://www.amazon.fr/'.</msg>
+<msg time="2025-01-16T18:04:55.061481" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-01-16T18:04:55.061790" level="FAIL">SessionNotCreatedException: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir
+Stacktrace:
+#0 0x55f3c8c9e7ca &lt;unknown&gt;
+#1 0x55f3c87962f0 &lt;unknown&gt;
+#2 0x55f3c87cd063 &lt;unknown&gt;
+#3 0x55f3c87c98c6 &lt;unknown&gt;
+#4 0x55f3c8816bc9 &lt;unknown&gt;
+#5 0x55f3c8816216 &lt;unknown&gt;
+#6 0x55f3c880a753 &lt;unknown&gt;
+#7 0x55f3c87d7baa &lt;unknown&gt;
+#8 0x55f3c87d8dfe &lt;unknown&gt;
+#9 0x55f3c8c6938b &lt;unknown&gt;
+#10 0x55f3c8c6d307 &lt;unknown&gt;
+#11 0x55f3c8c55e7c &lt;unknown&gt;
+#12 0x55f3c8c6dec7 &lt;unknown&gt;
+#13 0x55f3c8c3a24f &lt;unknown&gt;
+#14 0x55f3c8c8d2f8 &lt;unknown&gt;
+#15 0x55f3c8c8d4c0 &lt;unknown&gt;
+#16 0x55f3c8c9d646 &lt;unknown&gt;
+#17 0x7f4cfef921c4 &lt;unknown&gt;
+</msg>
+<arg>https://www.amazon.fr/</arg>
+<arg>browser=chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="FAIL" start="2025-01-16T18:04:47.334042" elapsed="7.729010">SessionNotCreatedException: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir
+Stacktrace:
+#0 0x55f3c8c9e7ca &lt;unknown&gt;
+#1 0x55f3c87962f0 &lt;unknown&gt;
+#2 0x55f3c87cd063 &lt;unknown&gt;
+#3 0x55f3c87c98c6 &lt;unknown&gt;
+#4 0x55f3c8816bc9 &lt;unknown&gt;
+#5 0x55f3c8816216 &lt;unknown&gt;
+#6 0x55f3c880a753 &lt;unknown&gt;
+#7 0x55f3c87d7baa &lt;unknown&gt;
+#8 0x55f3c87d8dfe &lt;unknown&gt;
+#9 0x55f3c8c6938b &lt;unknown&gt;
+#10 0x55f3c8c6d307 &lt;unknown&gt;
+#11 0x55f3c8c55e7c &lt;unknown&gt;
+#12 0x55f3c8c6dec7 &lt;unknown&gt;
+#13 0x55f3c8c3a24f &lt;unknown&gt;
+#14 0x55f3c8c8d2f8 &lt;unknown&gt;
+#15 0x55f3c8c8d4c0 &lt;unknown&gt;
+#16 0x55f3c8c9d646 &lt;unknown&gt;
+#17 0x7f4cfef921c4 &lt;unknown&gt;
+</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>locator=(//*[@id="sp-cc-accept"])</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-01-16T18:04:55.063605" elapsed="0.000095"/>
+</kw>
+<status status="FAIL" start="2025-01-16T18:04:47.332570" elapsed="7.731487">SessionNotCreatedException: Message: session not created: probably user data directory is already in use, please specify a unique value for --user-data-dir argument, or don't use --user-data-dir
+Stacktrace:
+#0 0x55f3c8c9e7ca &lt;unknown&gt;
+#1 0x55f3c87962f0 &lt;unknown&gt;
+#2 0x55f3c87cd063 &lt;unknown&gt;
+#3 0x55f3c87c98c6 &lt;unknown&gt;
+#4 0x55f3c8816bc9 &lt;unknown&gt;
+#5 0x55f3c8816216 &lt;unknown&gt;
+#6 0x55f3c880a753 &lt;unknown&gt;
+#7 0x55f3c87d7baa &lt;unknown&gt;
+#8 0x55f3c87d8dfe &lt;unknown&gt;
+#9 0x55f3c8c6938b &lt;unknown&gt;
+#10 0x55f3c8c6d307 &lt;unknown&gt;
+#11 0x55f3c8c55e7c &lt;unknown&gt;
+#12 0x55f3c8c6dec7 &lt;unknown&gt;
+#13 0x55f3c8c3a24f &lt;unknown&gt;
+#14 0x55f3c8c8d2f8 &lt;unknown&gt;
+#15 0x55f3c8c8d4c0 &lt;unknown&gt;
+#16 0x55f3c8c9d646 &lt;unknown&gt;
+#17 0x7f4cfef921c4 &lt;unknown&gt;
+</status>
+</test>
+<status status="FAIL" start="2025-01-16T18:04:47.150230" elapsed="7.914527"/>
+</suite>
+<suite id="s1-s2" name="Test Decath" source="/app/tests/test_decath.robot">
+<test id="s1-s2-t1" name="Search And Add To Cart" line="7">
+<kw name="Open Website Homepage">
+<msg time="2025-01-16T18:04:55.078242" level="FAIL">No keyword with name 'Open Website Homepage' found.</msg>
+<arg>${BASE_URL}[dct]</arg>
+<arg>${SITE_NAME}[dct]</arg>
+<status status="FAIL" start="2025-01-16T18:04:55.078173" elapsed="0.000145">No keyword with name 'Open Website Homepage' found.</status>
+</kw>
+<kw name="Handle Cookies Banner">
+<arg>${COOKIES_OK}[dct]</arg>
+<status status="NOT RUN" start="2025-01-16T18:04:55.078526" elapsed="0.000074"/>
+</kw>
+<kw name="Search For Item">
+<arg>${SEARCH_TERM}[dct]</arg>
+<status status="NOT RUN" start="2025-01-16T18:04:55.078745" elapsed="0.000025"/>
+</kw>
+<kw name="Add First Item To Cart">
+<status status="NOT RUN" start="2025-01-16T18:04:55.078878" elapsed="0.000020"/>
+</kw>
+<kw name="Close Browser">
+<status status="NOT RUN" start="2025-01-16T18:04:55.078988" elapsed="0.000021"/>
+</kw>
+<doc>This test opens Decathlon, searches for "bonnet," and adds the first displayed item to the cart.</doc>
+<status status="FAIL" start="2025-01-16T18:04:55.076214" elapsed="0.003050">No keyword with name 'Open Website Homepage' found.</status>
+</test>
+<doc>Test case to search for "bonnet" on Decathlon and add the first item to the cart.</doc>
+<status status="FAIL" start="2025-01-16T18:04:55.065718" elapsed="0.014032"/>
+</suite>
+<suite id="s1-s3" name="Test Decath Bcl" source="/app/tests/test_decath_bcl.robot">
+<test id="s1-s3-t1" name="Search And Add To Cart" line="7">
+<kw name="Open Website Homepage">
+<msg time="2025-01-16T18:04:55.086409" level="FAIL">No keyword with name 'Open Website Homepage' found.</msg>
+<arg>${BASE_URL}[dct]</arg>
+<arg>${SITE_NAME}[dct]</arg>
+<status status="FAIL" start="2025-01-16T18:04:55.086304" elapsed="0.000196">No keyword with name 'Open Website Homepage' found.</status>
+</kw>
+<kw name="Handle Cookies Banner">
+<arg>${COOKIES_OK}[dct]</arg>
+<status status="NOT RUN" start="2025-01-16T18:04:55.086737" elapsed="0.000036"/>
+</kw>
+<kw name="Search For Item">
+<arg>${SEARCH_TERM}[dct]</arg>
+<status status="NOT RUN" start="2025-01-16T18:04:55.086895" elapsed="0.000064"/>
+</kw>
+<kw name="Add First Item To Cart">
+<status status="NOT RUN" start="2025-01-16T18:04:55.087090" elapsed="0.000024"/>
+</kw>
+<kw name="Close Browser">
+<status status="NOT RUN" start="2025-01-16T18:04:55.087214" elapsed="0.000021"/>
+</kw>
+<doc>This test opens Decathlon, searches for "bonnet," and adds the first displayed item to the cart.</doc>
+<status status="FAIL" start="2025-01-16T18:04:55.084487" elapsed="0.002995">No keyword with name 'Open Website Homepage' found.</status>
+</test>
+<doc>Test case to search for "bonnet" on Decathlon and add the first item to the cart.</doc>
+<status status="FAIL" start="2025-01-16T18:04:55.080544" elapsed="0.007387"/>
+</suite>
+<suite id="s1-s4" name="Test Saucedemo" source="/app/tests/test_saucedemo.robot">
+<test id="s1-s4-t1" name="Login With Standard User Profile" line="8">
+<kw name="Open Website Homepage">
+<msg time="2025-01-16T18:04:55.100175" level="FAIL">No keyword with name 'Open Website Homepage' found.</msg>
+<arg>${BASE_URL}[sd]</arg>
+<arg>${SITE_NAME}[sd]</arg>
+<status status="FAIL" start="2025-01-16T18:04:55.100088" elapsed="0.000172">No keyword with name 'Open Website Homepage' found.</status>
+</kw>
+<kw name="Navigate To Login Page">
+<status status="NOT RUN" start="2025-01-16T18:04:55.100500" elapsed="0.000034"/>
+</kw>
+<kw name="Login With Credentials">
+<status status="NOT RUN" start="2025-01-16T18:04:55.100947" elapsed="0.000041"/>
+</kw>
+<doc>This test verifies the user can log in successfully to with their credentials</doc>
+<status status="FAIL" start="2025-01-16T18:04:55.098191" elapsed="0.003041">No keyword with name 'Open Website Homepage' found.</status>
+</test>
+<doc>Test cases for RobotFramework with SauceDemo</doc>
+<status status="FAIL" start="2025-01-16T18:04:55.089528" elapsed="0.012119"/>
+</suite>
+<suite id="s1-s5" name="Tests Amazon" source="/app/tests/tests_amazon.robot">
+<test id="s1-s5-t1" name="Login to website account" line="7">
+<kw name="Open Website Homepage">
+<msg time="2025-01-16T18:04:55.108450" level="FAIL">No keyword with name 'Open Website Homepage' found.</msg>
+<arg>${BASE_URL}[amz]</arg>
+<arg>${SITE_NAME}[amz]</arg>
+<status status="FAIL" start="2025-01-16T18:04:55.108394" elapsed="0.000122">No keyword with name 'Open Website Homepage' found.</status>
+</kw>
+<kw name="Handle Cookies Banner">
+<arg>${COOKIES_OK}[amz]</arg>
+<status status="NOT RUN" start="2025-01-16T18:04:55.109293" elapsed="0.000075"/>
+</kw>
+<kw name="Navigate To Login Page">
+<status status="NOT RUN" start="2025-01-16T18:04:55.109546" elapsed="0.000031"/>
+</kw>
+<kw name="Login With Credentials">
+<status status="NOT RUN" start="2025-01-16T18:04:55.109691" elapsed="0.000022"/>
+</kw>
+<kw name="Close Browser">
+<status status="NOT RUN" start="2025-01-16T18:04:55.109839" elapsed="0.000023"/>
+</kw>
+<doc>This test opens Amazon, accept the cookies,and login into their account</doc>
+<status status="FAIL" start="2025-01-16T18:04:55.106686" elapsed="0.003427">No keyword with name 'Open Website Homepage' found.</status>
+</test>
+<doc>Test case to search for "bonnet" on Decathlon and add the first item to the cart.</doc>
+<status status="FAIL" start="2025-01-16T18:04:55.102283" elapsed="0.008333"/>
+</suite>
+<status status="FAIL" start="2025-01-16T18:04:47.129522" elapsed="7.982896"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="5" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="0" fail="5" skip="0">Tests</stat>
+<stat name="Test1" id="s1-s1" pass="0" fail="1" skip="0">Tests.Test1</stat>
+<stat name="Test Decath" id="s1-s2" pass="0" fail="1" skip="0">Tests.Test Decath</stat>
+<stat name="Test Decath Bcl" id="s1-s3" pass="0" fail="1" skip="0">Tests.Test Decath Bcl</stat>
+<stat name="Test Saucedemo" id="s1-s4" pass="0" fail="1" skip="0">Tests.Test Saucedemo</stat>
+<stat name="Tests Amazon" id="s1-s5" pass="0" fail="1" skip="0">Tests.Tests Amazon</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-01-16T18:04:55.074530" level="ERROR">Error in file '/app/tests/test_decath.robot' on line 3: Resource file '../Ressources/keywords/keywords_decath.robot' does not exist.</msg>
+<msg time="2025-01-16T18:04:55.075458" level="ERROR">Error in file '/app/tests/test_decath.robot' on line 4: Resource file '../Ressources/keywords/keywords_common.robot' does not exist.</msg>
+<msg time="2025-01-16T18:04:55.082578" level="ERROR">Error in file '/app/tests/test_decath_bcl.robot' on line 3: Resource file '../Ressources/keywords/keywords_decath.robot' does not exist.</msg>
+<msg time="2025-01-16T18:04:55.083607" level="ERROR">Error in file '/app/tests/test_decath_bcl.robot' on line 4: Resource file '../Ressources/keywords/keywords_common.robot' does not exist.</msg>
+<msg time="2025-01-16T18:04:55.094158" level="ERROR">Error in file '/app/tests/test_saucedemo.robot' on line 3: Resource file '../Ressources/keywords/keywords_saucedemo.robot' does not exist.</msg>
+<msg time="2025-01-16T18:04:55.095594" level="ERROR">Error in file '/app/tests/test_saucedemo.robot' on line 4: Resource file '../Ressources/keywords/keywords_common.robot' does not exist.</msg>
+<msg time="2025-01-16T18:04:55.097416" level="ERROR">Error in file '/app/tests/test_saucedemo.robot' on line 5: Resource file '../Ressources/keywords/keywords_amazon.robot' does not exist.</msg>
+<msg time="2025-01-16T18:04:55.104823" level="ERROR">Error in file '/app/tests/tests_amazon.robot' on line 3: Resource file '../Ressources/keywords/keywords_amazon.robot' does not exist.</msg>
+<msg time="2025-01-16T18:04:55.105860" level="ERROR">Error in file '/app/tests/tests_amazon.robot' on line 4: Resource file '../Ressources/keywords/keywords_common.robot' does not exist.</msg>
+</errors>
+</robot>
