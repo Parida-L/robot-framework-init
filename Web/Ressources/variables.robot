@@ -1,7 +1,7 @@
 *** Variables ***
 
-&{BASE_URL}              amz=https://www.amazon.fr    dct=https://www.decathlon.fr
-&{SITE_NAME}             amz=amazon    dct=decathlon
+&{BASE_URL}              amz=https://www.amazon.fr    dct=https://www.decathlon.fr    sd=https://www.saucedemo.com/
+&{SITE_NAME}             amz=amazon    dct=decathlon    sd=Swag Labs
 &{SEARCH_TERM}           amz=chaussettes    dct=bonnet
 &{COOKIES_OK}            amz=//*[@id="sp-cc-accept"]    dct=//*[@id="didomi-notice-agree-button"]
 &{COOKIES_KO}            amz=//*[@id="sp-cc-rejectall-link"]    dct=//*[@id="didomi-popup"]/div/div/div/span
@@ -10,17 +10,16 @@ ${BROWSER}               chrome
 ${TIMEOUT}               10s
 
 #AMAZON
-#${ACCEPT_COOKIES_BTN}    //*[@id="sp-cc-accept"]
 ${LOGIN_ICON}            //*[@id="nav-link-accountList"]
 ${LOGIN_TITLE_LOCATOR}   //*[@id="claim-collection-container"]/h1
 ${LOGIN_TITLE}           Identifiez-vous ou créez un compte
 ${EMAIL_INPUT}           //*[@id="ap_email_login"]
 ${EMAIL_ADDRESS}         damien.automatisation@gmail.com 
-${PASSWORD}              Aa123456!
+&{PASSWORD}              amz=Aa123456!    sd=secret_sauce
 ${CONTINUE_BTN}          //*[@id="continue"]/span/input
 ${PASSWORD_INPUT_NAME}   Mot de passe
 ${PASSWORD_INPUT}        //*[@id="ap_password"]
-${SUBMIT_BTN_LOGIN}      //*[@id="signInSubmit"]
+&{SUBMIT_BTN_LOGIN}      amz=//*[@id="signInSubmit"]    sd=//*[@id="login-button"]
 ${WELCOME_TEXT}          Bonjour Damien
 
 #DECATH
@@ -32,3 +31,8 @@ ${ADD_BTN}           //*[@id="vtmn-modal-description"]/div/div[2]/div[6]/button
 ${CART_ICON}         //*[@id="app"]/header/div[1]/nav[1]/div[4]/div[5]/a
 ${CART_ASSERT}       Panier
 ${ITEM_CART_ASS}     BONNET
+
+#SAUCE DEMO
+&{SD_USERNAME}        std=standard_user    lock=locked_out_user
+${USERNAME_INPUT}     //*[@id="user-name"]
+${PWD_INPUT}          //*[@id="password"]
