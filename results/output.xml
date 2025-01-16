@@ -1,153 +1,165 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2 (Python 3.13.1 on win32)" generated="2025-01-16T14:58:39.016582" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2 (Python 3.13.1 on win32)" generated="2025-01-16T15:44:20.776470" rpa="false" schemaversion="5">
 <suite id="s1" name="Robot-Framework-Init" source="C:\Users\Administrateur\Desktop\robot-framework-init">
 <suite id="s1-s1" name="Web" source="C:\Users\Administrateur\Desktop\robot-framework-init\Web">
 <suite id="s1-s1-s1" name="Tests" source="C:\Users\Administrateur\Desktop\robot-framework-init\Web\Tests">
-<suite id="s1-s1-s1-s1" name="Tests Amazon" source="C:\Users\Administrateur\Desktop\robot-framework-init\Web\Tests\tests_amazon.robot">
-<test id="s1-s1-s1-s1-t1" name="Login to website account" line="7">
+<suite id="s1-s1-s1-s1" name="Test Decath" source="C:\Users\Administrateur\Desktop\robot-framework-init\Web\Tests\test_decath.robot">
+<test id="s1-s1-s1-s1-t1" name="Search And Add To Cart" line="7">
 <kw name="Open Website Homepage" owner="keywords_common">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-01-16T14:58:39.244579" level="INFO">Opening browser 'chrome' to base url 'https://www.amazon.fr'.</msg>
+<msg time="2025-01-16T15:44:21.014449" level="INFO">Opening browser 'chrome' to base url 'https://www.decathlon.fr'.</msg>
 <arg>${url}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-01-16T14:58:39.244089" elapsed="2.198621"/>
+<status status="PASS" start="2025-01-16T15:44:21.014137" elapsed="2.801337"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-01-16T14:58:41.443226" elapsed="0.062776"/>
+<status status="PASS" start="2025-01-16T15:44:23.815695" elapsed="0.090323"/>
 </kw>
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>css=body</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-16T14:58:41.506275" elapsed="0.028546"/>
+<status status="PASS" start="2025-01-16T15:44:23.906441" elapsed="0.011667"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
 <arg>text=${site_name}</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-16T14:58:41.535049" elapsed="0.025549"/>
+<status status="PASS" start="2025-01-16T15:44:23.918394" elapsed="0.037582"/>
 </kw>
-<arg>${BASE_URL}[amz]</arg>
-<arg>${SITE_NAME}[amz]</arg>
+<arg>${BASE_URL}[dct]</arg>
+<arg>${SITE_NAME}[dct]</arg>
 <doc>Open the Decathlon homepage.</doc>
-<status status="PASS" start="2025-01-16T14:58:39.243024" elapsed="2.317835"/>
+<status status="PASS" start="2025-01-16T15:44:21.013224" elapsed="2.942925"/>
 </kw>
-<kw name="Accept Cookies" owner="keywords_common">
+<kw name="Handle Cookies Banner" owner="keywords_common">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-01-16T15:44:23.971501" level="INFO">Element '//*[@id="didomi-notice-agree-button"]' is displayed.</msg>
+<arg>${cookie_locator}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-16T15:44:23.957179" elapsed="0.014545"/>
+</kw>
+<msg time="2025-01-16T15:44:23.971887" level="INFO">${is_cookie_displayed} = True</msg>
+<var>${is_cookie_displayed}</var>
+<arg>Element Should Be Visible</arg>
+<arg>${cookie_locator}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-01-16T15:44:23.956923" elapsed="0.015136"/>
+</kw>
+<if>
+<branch type="IF" condition="${is_cookie_displayed}">
+<kw name="Handle Cookie Action" owner="keywords_common">
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>locator=${accept_cookies}</arg>
+<arg>locator=${cookie_locator}</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-16T14:58:41.561850" elapsed="0.016019"/>
+<status status="PASS" start="2025-01-16T15:44:23.973167" elapsed="0.005724"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-01-16T14:58:41.578488" level="INFO">Clicking element '//*[@id="sp-cc-accept"]'.</msg>
-<arg>locator=${accept_cookies}</arg>
+<msg time="2025-01-16T15:44:23.979402" level="INFO">Clicking element '//*[@id="didomi-notice-agree-button"]'.</msg>
+<arg>locator=${cookie_locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-16T14:58:41.578102" elapsed="0.137236"/>
+<status status="PASS" start="2025-01-16T15:44:23.979065" elapsed="0.079703"/>
 </kw>
-<arg>${COOKIES_OK}[amz]</arg>
-<doc>Accept the cookies</doc>
-<status status="PASS" start="2025-01-16T14:58:41.561241" elapsed="0.154263"/>
+<arg>${cookie_locator}</arg>
+<doc>Perform the specified cookie action (accept/reject) using the given locator.</doc>
+<status status="PASS" start="2025-01-16T15:44:23.972732" elapsed="0.086224"/>
 </kw>
-<kw name="Navigate To Login Page" owner="keywords_amazon">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>locator=${LOGIN_ICON}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-16T14:58:41.716131" elapsed="0.014835"/>
+<status status="PASS" start="2025-01-16T15:44:23.972208" elapsed="0.086835"/>
+</branch>
+<status status="PASS" start="2025-01-16T15:44:23.972179" elapsed="0.086938"/>
+</if>
+<arg>${COOKIES_OK}[dct]</arg>
+<doc>Handle cookies dynamically based on the provided action and cookie locator.</doc>
+<status status="PASS" start="2025-01-16T15:44:23.956513" elapsed="0.102646"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-01-16T14:58:41.731724" level="INFO">Clicking element '//*[@id="nav-link-accountList"]'.</msg>
-<arg>locator=${LOGIN_ICON}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-16T14:58:41.731303" elapsed="0.431502"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>locator=${LOGIN_TITLE_LOCATOR}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-16T14:58:42.163125" elapsed="0.014901"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>text=${LOGIN_TITLE}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-16T14:58:42.178222" elapsed="0.014239"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>locator=${EMAIL_INPUT}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-16T14:58:42.192671" elapsed="0.010270"/>
-</kw>
-<doc>Go to the login page</doc>
-<status status="PASS" start="2025-01-16T14:58:41.715797" elapsed="0.487488"/>
-</kw>
-<kw name="Login With Credentials" owner="keywords_amazon">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>locator=${EMAIL_INPUT}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-16T14:58:42.204283" elapsed="0.005067"/>
-</kw>
+<kw name="Search For Item" owner="keywords_common">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-01-16T14:58:42.209876" level="INFO">Typing text 'damien.automatisation@gmail.com' into text field '//*[@id="ap_email_login"]'.</msg>
-<arg>locator=${EMAIL_INPUT}</arg>
-<arg>text=${EMAIL_ADDRESS}</arg>
+<msg time="2025-01-16T15:44:24.060257" level="INFO">Typing text 'bonnet' into text field 'css=[type="search"]'.</msg>
+<arg>css=[type="search"]</arg>
+<arg>text=${item}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-16T14:58:42.209522" elapsed="0.107998"/>
+<status status="PASS" start="2025-01-16T15:44:24.059979" elapsed="0.492945"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-01-16T15:44:24.553756" level="INFO">Sending key(s) ('RETURN',) to css=[type="search"] element.</msg>
+<msg time="2025-01-16T15:44:24.834513" level="INFO">Pressing special key RETURN to element.</msg>
+<msg time="2025-01-16T15:44:24.834842" level="INFO">Releasing special key RETURN.</msg>
+<arg>css=[type="search"]</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-01-16T15:44:24.553223" elapsed="2.430398"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css=.product-list</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-16T15:44:26.984023" elapsed="0.039949"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>${item}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-16T15:44:27.024171" elapsed="0.022607"/>
+</kw>
+<arg>${SEARCH_TERM}[dct]</arg>
+<doc>Search for an item on the Decathlon website.</doc>
+<status status="PASS" start="2025-01-16T15:44:24.059588" elapsed="2.987395"/>
+</kw>
+<kw name="Add First Item To Cart" owner="keywords_decath">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-16T15:44:27.048211" level="INFO">Clicking element '//*[@id="app"]/main/div[2]/section[2]/div/div[1]'.</msg>
+<arg>${ITEM_LOCATOR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-16T15:44:27.047854" elapsed="0.123219"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-01-16T14:58:42.318209" level="INFO">Clicking button '//*[@id="continue"]/span/input'.</msg>
-<arg>locator=${CONTINUE_BTN}</arg>
+<msg time="2025-01-16T15:44:27.171740" level="INFO">Clicking button '//*[@id="app"]/main/div[2]/section[2]/div/div[1]/div[4]/div/div/button'.</msg>
+<arg>${ADD_CART_LOCATOR}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-16T14:58:42.317805" elapsed="0.060031"/>
+<status status="PASS" start="2025-01-16T15:44:27.171294" elapsed="0.159854"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>locator=${FIRST_CARD_LOC}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-16T15:44:27.331740" elapsed="0.092950"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>text=${EMAIL_ADDRESS}</arg>
+<arg>text=${ITEM_TITLE}</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-16T14:58:42.378050" elapsed="0.619357"/>
+<status status="PASS" start="2025-01-16T15:44:27.424892" elapsed="0.019084"/>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>text=${PASSWORD_INPUT_NAME}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-16T14:58:42.997586" elapsed="0.009982"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2025-01-16T14:58:43.008104" level="INFO">Typing password into text field '//*[@id="ap_password"]'.</msg>
-<msg time="2025-01-16T14:58:43.033655" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>locator=${PASSWORD_INPUT}</arg>
-<arg>password=${PASSWORD}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-16T14:58:43.007749" elapsed="0.057083"/>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>locator=${ADD_BTN}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-16T15:44:27.444216" elapsed="1.116825"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-01-16T14:58:43.065345" level="INFO">Clicking button '//*[@id="signInSubmit"]'.</msg>
-<arg>locator=${SUBMIT_BTN_LOGIN}</arg>
+<msg time="2025-01-16T15:44:28.561542" level="INFO">Clicking button '//*[@id="vtmn-modal-description"]/div/div[2]/div[6]/button'.</msg>
+<arg>locator=${ADD_BTN}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-16T14:58:43.065017" elapsed="0.066545"/>
+<status status="PASS" start="2025-01-16T15:44:28.561215" elapsed="0.102765"/>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>text=${WELCOME_TEXT}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-16T14:58:43.131744" elapsed="1.900856"/>
-</kw>
-<doc>Login with given credentials</doc>
-<status status="PASS" start="2025-01-16T14:58:42.203788" elapsed="2.829086"/>
+<doc>Add the first displayed item to the cart.</doc>
+<status status="PASS" start="2025-01-16T15:44:27.047393" elapsed="1.616730"/>
 </kw>
 <kw name="Close Browser" owner="keywords_common">
 <kw name="Close All Browsers" owner="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2025-01-16T14:58:45.034153" elapsed="2.150098"/>
+<status status="PASS" start="2025-01-16T15:44:28.664949" elapsed="2.154123"/>
 </kw>
 <doc>Close the browser.</doc>
-<status status="PASS" start="2025-01-16T14:58:45.033662" elapsed="2.151284"/>
+<status status="PASS" start="2025-01-16T15:44:28.664534" elapsed="2.155502"/>
 </kw>
-<doc>This test opens Amazon, accept the cookies,and login into their account</doc>
-<status status="PASS" start="2025-01-16T14:58:39.241500" elapsed="7.944496"/>
+<doc>This test opens Decathlon, searches for "bonnet," and adds the first displayed item to the cart.</doc>
+<status status="PASS" start="2025-01-16T15:44:21.012147" elapsed="9.809758"/>
 </test>
 <doc>Test case to search for "bonnet" on Decathlon and add the first item to the cart.</doc>
-<status status="PASS" start="2025-01-16T14:58:39.047830" elapsed="8.141553"/>
+<status status="PASS" start="2025-01-16T15:44:20.805391" elapsed="10.021062"/>
 </suite>
-<status status="PASS" start="2025-01-16T14:58:39.044937" elapsed="8.147500"/>
+<status status="PASS" start="2025-01-16T15:44:20.803477" elapsed="10.028050"/>
 </suite>
-<status status="PASS" start="2025-01-16T14:58:39.042069" elapsed="8.152685"/>
+<status status="PASS" start="2025-01-16T15:44:20.800619" elapsed="10.035598"/>
 </suite>
-<status status="PASS" start="2025-01-16T14:58:39.022293" elapsed="8.175091"/>
+<status status="PASS" start="2025-01-16T15:44:20.780525" elapsed="10.059981"/>
 </suite>
 <statistics>
 <total>
@@ -159,7 +171,7 @@
 <stat name="Robot-Framework-Init" id="s1" pass="1" fail="0" skip="0">Robot-Framework-Init</stat>
 <stat name="Web" id="s1-s1" pass="1" fail="0" skip="0">Robot-Framework-Init.Web</stat>
 <stat name="Tests" id="s1-s1-s1" pass="1" fail="0" skip="0">Robot-Framework-Init.Web.Tests</stat>
-<stat name="Tests Amazon" id="s1-s1-s1-s1" pass="1" fail="0" skip="0">Robot-Framework-Init.Web.Tests.Tests Amazon</stat>
+<stat name="Test Decath" id="s1-s1-s1-s1" pass="1" fail="0" skip="0">Robot-Framework-Init.Web.Tests.Test Decath</stat>
 </suite>
 </statistics>
 <errors>

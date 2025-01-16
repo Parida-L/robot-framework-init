@@ -7,7 +7,7 @@ Resource         ../Ressources/keywords/keywords_common.robot
 Search And Add To Cart
     [Documentation]    This test opens Decathlon, searches for "bonnet," and adds the first displayed item to the cart.
     Open Website Homepage    ${BASE_URL}[dct]    ${SITE_NAME}[dct]
-    Accept Cookies    ${COOKIES_OK}[dct]
+    Handle Cookies Banner    ${COOKIES_OK}[dct]
     Search For Item    ${SEARCH_TERM}[dct]
     Add First Item To Cart
     Close Browser

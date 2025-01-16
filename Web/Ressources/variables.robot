@@ -4,6 +4,8 @@
 &{SITE_NAME}             amz=amazon    dct=decathlon
 &{SEARCH_TERM}           amz=chaussettes    dct=bonnet
 &{COOKIES_OK}            amz=//*[@id="sp-cc-accept"]    dct=//*[@id="didomi-notice-agree-button"]
+&{COOKIES_KO}            amz=//*[@id="sp-cc-rejectall-link"]    dct=//*[@id="didomi-popup"]/div/div/div/span
+
 ${BROWSER}               chrome
 ${TIMEOUT}               10s
 
@@ -21,13 +23,7 @@ ${PASSWORD_INPUT}        //*[@id="ap_password"]
 ${SUBMIT_BTN_LOGIN}      //*[@id="signInSubmit"]
 ${WELCOME_TEXT}          Bonjour Damien
 
-# # DECATHLON
-# ${BASE_URL}          https://www.decathlon.fr
-# ${SITE_NAME}         decathlon
-# ${SEARCH_TERM}       bonnet
-# ${BROWSER}           chrome
-# ${TIMEOUT}           10s
-#${COOKIES_OK_DCT}    //*[@id="didomi-notice-agree-button"]
+#DECATH
 ${ITEM_LOCATOR}      //*[@id="app"]/main/div[2]/section[2]/div/div[1]
 ${ADD_CART_LOCATOR}  //*[@id="app"]/main/div[2]/section[2]/div/div[1]/div[4]/div/div/button
 ${FIRST_CARD_LOC}    //*[@id="vtmn-modal-description"]/div/div[2]/div[1]/div/span
