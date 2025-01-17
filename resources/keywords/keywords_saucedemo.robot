@@ -1,8 +1,60 @@
 *** Settings ***
 Resource         ../libraries.resource
 Resource         ../variables.robot
+Resource         ../keywords/keywords_common.robot
 
 *** Keywords ***
+#GHERKIN    
+
+#Scenario: Verify Authentication With Standard User Credentials    
+
+I Am Logged In AS A Standard User
+    [Documentation]    This keyword navigates to the SauceDemo homepage
+    Open Website Homepage    ${BASE_URL}[sd]    ${SITE_NAME}[sd]
+    Login From Login Page    ${SD_LOGIN}[std]    ${PWD}[sd]    ${LOGIN_INPUT}[sd]    ${PWD_INPUT}[sd]    ${CONTINUE}[sd]
+    Verify User Is Logged In    welcome_text=${WELCOME_TEXT}[sd]
+
+I Log Out
+    [Documentation]    This keyword logs out from Sauce Demo
+    Log Out
+
+I Should Be Logged Out Successfully
+    [Documentation]    This keyword verifies the user is logged out successfully
+    Wait Until Page Contains    text=Accepted usernames are:
+    Close Browser
+
+#Scenario: Verify Authentication With Locked Out User Credentials    
+
+I Navigate To The SauceDemo Homepage
+    [Documentation]    This keyword navigates to the SauceDemo homepage
+    Open Website Homepage    ${BASE_URL}[sd]    ${SITE_NAME}[sd]
+
+I Log In With Locked Out User Credentials
+    [Documentation]    This keyword logs in with locked out user credentials
+    Login From Login Page    ${SD_LOGIN}[lck]    ${PWD}[sd]    ${LOGIN_INPUT}[sd]    ${PWD_INPUT}[sd]    ${CONTINUE}[sd]
+
+I Should See An Error Message
+    [Documentation]    This keyword verifies the user cannot log in with locked out user credentials
+    Verify Error Message
+    Close Browser
+
+#Scenario: Test Checkout Process    
+
+I Select The Two Most Expensive Products
+    [Documentation]    This keyword verifies the user can select the two most expensive products
+    Sort Products By Price
+    Add Two Most Expensive Products To Cart
+    Go To Cart And Verify Products
+
+I Can Order The Products
+    [Documentation]    This keyword verifies the user can order the products
+    Enter Customer Information And Verify Prices
+    Complete The Order
+    Verify Order Completion
+    Close Browser
+
+#SOUS KEYWORDS    
+
 Log Out
     [Documentation]    Log out from Sauce Demo
     Click Button    locator=//*[@id="react-burger-menu-btn"]
