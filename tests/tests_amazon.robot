@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    Test case to search for "bonnet" on Decathlon and add the first item to the cart.
+Documentation    Test case to login to Amazon account.
 Resource         ../resources/keywords/keywords_common.robot
 Resource         ../resources/keywords/keywords_amazon.robot
 
@@ -9,5 +9,6 @@ Login to website account
     Open Website Homepage    ${BASE_URL}[amz]    ${SITE_NAME}[amz]
     Handle Cookies Banner    ${COOKIES_OK}[amz]
     Navigate To Login Page
-    Login With Credentials    ${EMAIL_ADDRESS}    ${PASSWORD}[amz]
-    Close Browser
+    # Login
+    # Verify User Is Logged In    welcome_text=${WELCOME_TEXT}[amz]
+    # # Close Browser

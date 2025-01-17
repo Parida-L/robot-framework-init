@@ -13,14 +13,14 @@ ${TIMEOUT}               10s
 ${LOGIN_LOCATOR}         //*[@id="nav-link-accountList"]
 ${LOGIN_INPUT_LOCATOR}   //*[@id="authportal-main-section"]/div[2]/div[2]/div[1]/form/div/div/div/div[1]/label
 ${LOGIN_INPUT_NAME}      e-mail
-${LOGIN_INPUT}           //*[@id="ap_email_login"]
-${EMAIL_ADDRESS}         damien.automatisation@gmail.com 
-&{PASSWORD}              amz=Aa123456!    sd=secret_sauce
-${CONTINUE_BTN}          //*[@id="continue"]/span/input
+&{LOGIN_INPUT}           amz=//input[@id='ap_email']    sd=//*[@id="user-name"]
+${EMAIL}                 damien.automatisation@gmail.com
+&{PWD}                   amz=Aa123456!    sd=secret_sauce
+&{CONTINUE_BTN}          amz=//*[@id="continue"]/span/input    sd=//*[@id="login-button"]
 ${PASSWORD_INPUT_NAME}   Mot de passe
-${PASSWORD_INPUT}        //*[@id="ap_password"]
-&{SUBMIT_BTN_LOGIN}      amz=//*[@id="signInSubmit"]    sd=//*[@id="login-button"]
-${WELCOME_TEXT}          Bonjour Damien
+&{PWD_INPUT}             amz=//*[@id="ap_password"]    sd=//*[@id="password"]
+&{CONTINUE}              amz=//*[@id="signInSubmit"]    sd=//*[@id="login-button"]
+&{WELCOME_TEXT}          amz=Bonjour Damien    sd=Swag Labs
 
 #DECATH
 ${ITEM_LOCATOR}      //*[@id="app"]/main/div[2]/section[2]/div/div[1]
@@ -33,6 +33,4 @@ ${CART_ASSERT}       Panier
 ${ITEM_CART_ASS}     BONNET
 
 #SAUCE DEMO
-&{SD_USERNAME}        std=standard_user    lock=locked_out_user
-${USERNAME_INPUT}     //*[@id="user-name"]
-${PWD_INPUT}          //*[@id="password"]
+&{SD_LOGIN}        std=standard_user    lck=locked_out_user
