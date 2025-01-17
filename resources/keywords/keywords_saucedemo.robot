@@ -48,12 +48,13 @@ I Select The Two Most Expensive Products
 
 I Can Order The Products
     [Documentation]    This keyword verifies the user can order the products
-    Enter Customer Information And Verify Prices
+    Enter Customer Information
+    Verify Prices
     Complete The Order
     Verify Order Completion
     Close Browser
 
-#SOUS KEYWORDS    
+#SOUS KEYWORDS  
 
 Log Out
     [Documentation]    Log out from Sauce Demo
@@ -76,14 +77,12 @@ Add Two Most Expensive Products To Cart
     [Documentation]    This test verifies the user can add the two most expensive products to the cart
     Wait Until Page Contains Element    locator=//*[@id="inventory_container"]/div/div[1]/div[2]
     Wait Until Element Contains    //*[@id="inventory_container"]/div/div[1]/div[2]    $49.99
-    # Wait Until Page Contains Element   //*[@id="add-to-cart-sauce-labs-fleece-jacket"]
     Click Button    locator=//*[@id="add-to-cart-sauce-labs-fleece-jacket"]
     Wait Until Page Contains Element    locator=//*[@id="remove-sauce-labs-fleece-jacket"]
     Wait Until Page Contains Element    locator=//*[@id="inventory_container"]/div/div[2]/div[2]
     Wait Until Element Contains    //*[@id="inventory_container"]/div/div[2]/div[2]    $29.99
     Click Button    locator=//*[@id="add-to-cart-sauce-labs-backpack"]
     Wait Until Page Contains Element    locator=//*[@id="remove-sauce-labs-backpack"]
-    # Wait Until Page Contains Element    locator=//*[@id="shopping_cart_container"]/a/span
     Wait Until Element Contains    //*[@id="shopping_cart_container"]/a/span    2
 
 Go To Cart And Verify Products
@@ -95,7 +94,7 @@ Go To Cart And Verify Products
     Wait Until Page Contains Element    locator=//*[@id="cart_contents_container"]/div/div[1]/div[4]
     Wait Until Element Contains    //*[@id="cart_contents_container"]/div/div[1]/div[4]    $29.99
 
-Enter Customer Information And Verify Prices
+Enter Customer Information
     [Documentation]    This test verifies the user can enter customer information and verify the prices
     Click Button    locator=//*[@id="checkout"]
     Wait Until Page Contains    text=Checkout: Your Information
@@ -103,6 +102,9 @@ Enter Customer Information And Verify Prices
     Input Text    locator=//*[@id="last-name"]    text=Automatisation
     Input Text    locator=//*[@id="postal-code"]    text=75000
     Click Button    locator=//*[@id="continue"]
+
+Verify Prices
+    [Documentation]    This test verifies the prices
     Wait Until Page Contains    text=Checkout: Overview
     Wait Until Page Contains    text=Sauce Labs Fleece Jacket
     Wait Until Page Contains    text=Sauce Labs Backpack
