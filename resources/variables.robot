@@ -34,3 +34,12 @@ ${ITEM_CART_ASS}     BONNET
 
 #SAUCE DEMO
 &{SD_LOGIN}        std=standard_user    lck=locked_out_user
+
+
+#DEMOQA
+
+${DEMOQA_URL}      https://demoqa.com/
+&{SFX_URL}         bk=books    log=login    sel=selectable    dp=date-picker    alt=alerts    cb=checkbox
+${BOOK_TITLE}      Designing Evolvable
+${AUTHOR}          Glenn Block et al.
+&{PAGE_NAME}       bk=Book Store
