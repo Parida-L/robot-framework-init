@@ -43,6 +43,7 @@ I Should See An Error Message
 I Select The Two Most Expensive Products
     [Documentation]    This keyword verifies the user can select the two most expensive products
     Sort Products By Price
+    Verify Products Sorted By Price Descending
     Add Two Most Expensive Products To Cart
     Go To Cart And Verify Products
 
@@ -71,18 +72,23 @@ Sort Products By Price
     [Documentation]    This test verifies the user can sort the products by price
     Wait Until Page Contains Element    locator=//select[@class='product_sort_container']
     Select From List By Value    //select[@class='product_sort_container']    hilo
-    Wait Until Page Contains    text=Price (low to high)
+    Wait Until Page Contains    text=Price (high to low)
 
 Add Two Most Expensive Products To Cart
-    [Documentation]    This test verifies the user can add the two most expensive products to the cart
-    Wait Until Page Contains Element    locator=//*[@id="inventory_container"]/div/div[1]/div[2]
-    Wait Until Element Contains    //*[@id="inventory_container"]/div/div[1]/div[2]    $49.99
-    Click Button    locator=//*[@id="add-to-cart-sauce-labs-fleece-jacket"]
-    Wait Until Page Contains Element    locator=//*[@id="remove-sauce-labs-fleece-jacket"]
-    Wait Until Page Contains Element    locator=//*[@id="inventory_container"]/div/div[2]/div[2]
-    Wait Until Element Contains    //*[@id="inventory_container"]/div/div[2]/div[2]    $29.99
-    Click Button    locator=//*[@id="add-to-cart-sauce-labs-backpack"]
-    Wait Until Page Contains Element    locator=//*[@id="remove-sauce-labs-backpack"]
+    [Documentation]    This keyword adds the two most expensive products to the cart by dynamically selecting them.
+    Wait Until Page Contains Element    locator=//*[@id="inventory_container"]
+    Wait Until Page Contains    text=Price (high to low)
+    # Add the first product to the cart
+    ${first_product_add_button}=    Get Webelement    //*[@id="inventory_container"]/div/div[1]//button[contains(@id, "add-to-cart")]
+    Wait Until Page Contains Element    ${first_product_add_button}
+    Click Button    ${first_product_add_button}
+    Wait Until Page Contains Element    //*[@id="inventory_container"]/div/div[1]//button[contains(@id, "remove")]
+
+    # Add the second product to the cart
+    ${second_product_add_button}=    Get Webelement    //*[@id="inventory_container"]/div/div[2]//button[contains(@id, "add-to-cart")]
+    Wait Until Page Contains Element    ${second_product_add_button}
+    Click Button    ${second_product_add_button}
+    Wait Until Page Contains Element    //*[@id="inventory_container"]/div/div[2]//button[contains(@id, "remove")]
     Wait Until Element Contains    //*[@id="shopping_cart_container"]/a/span    2
 
 Go To Cart And Verify Products
@@ -123,3 +129,24 @@ Verify Order Completion
     [Documentation]    Verify the order completion
     Wait Until Page Contains Element    locator=//*[@id="checkout_complete_container"]/h2
     Wait Until Element Contains    //*[@id="checkout_complete_container"]/h2    Thank you for your order!
+
+Verify Products Sorted By Price Descending
+    [Documentation]    This keyword verifies that products are sorted by price from highest to lowest.
+    Wait Until Page Contains Element    locator=//*[@id="inventory_container"]
+    Wait Until Page Contains    text=Price (high to low)
+    ${product_prices}=    Get Webelements    //*[@id="inventory_container"]//div[@class="inventory_item_price"]
+    ${prices}=    Create List
+    # Extract prices from the page and convert them to numbers
+    FOR    ${price_element}    IN    @{product_prices}
+        ${price_text}=    Get Text    ${price_element}
+        ${price}=    Convert To Number    ${price_text.replace('$', '')}
+        Append To List    ${prices}    ${price}
+    END
+    # Copy the original list of prices to create a sorted version
+    ${sorted_prices}=    Copy List    ${prices}
+    # Sort the copied list in ascending order
+    Sort List    ${sorted_prices}  
+    # Reverse the sorted list to descending order
+    Reverse List    ${sorted_prices}  
+    # Compare the original list of prices with the sorted list
+    Should Be Equal As Strings    ${prices}    ${sorted_prices}
