@@ -38,8 +38,13 @@ ${ITEM_CART_ASS}     BONNET
 
 #DEMOQA
 
-${DEMOQA_URL}      https://demoqa.com/
-&{SFX_URL}         bk=books    log=login    sel=selectable    dp=date-picker    alt=alerts    cb=checkbox
+&{DMQ_URL}         bk=https://demoqa.com/books    log=https://demoqa.com/login    sel=https://demoqa.com/selectable    dp=https://demoqa.com/date-picker    alt=https://demoqa.com/alerts    cb=https://demoqa.com/checkbox    reg=https://demoqa.com/register    int=https://demoqa.com/interaction
 ${BOOK_TITLE}      Designing Evolvable
 ${AUTHOR}          Glenn Block et al.
-&{PAGE_NAME}       bk=Book Store
+&{PAGE_NAME}       bk=Book Store    log=Login    reg=Register   sel=Selectable    int=Interactions
+&{SPE_LOC}         bk=//*[@id="searchBox"]    log=//*[@id="login"]    reg=//*[@id="newUser"]
+&{OPTION_A}        text=Morbi leo risus    locator=//*[@id="verticalListContainer"]/li[3]
+&{OPTION_B}        text=Cras justo odio    locator=//*[@id="verticalListContainer"]/li[1]
+&{OPTION_C}        text=One    locator=//*[@id="row1"]/li[1]
+&{OPTION_D}        text=Five    locator=//*[@id="row2"]/li[2]
+&{OPTION_E}        text=Nine    locator=//*[@id="row3"]/li[3]

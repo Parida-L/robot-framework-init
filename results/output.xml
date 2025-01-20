@@ -1,563 +1,377 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2 (Python 3.13.1 on win32)" generated="2025-01-18T11:41:05.217511" rpa="false" schemaversion="5">
-<suite id="s1" name="Robot-Framework-Init" source="C:\Users\parida\Desktop\M2i\robot-framework-init">
-<suite id="s1-s1" name="Tests" source="C:\Users\parida\Desktop\M2i\robot-framework-init\tests">
-<suite id="s1-s1-s1" name="Tests Saucedemo" source="C:\Users\parida\Desktop\M2i\robot-framework-init\tests\tests_saucedemo.robot">
-<test id="s1-s1-s1-t1" name="Scenario: Test Checkout Process" line="18">
-<kw name="Given I Am Logged In As A Standard User" owner="keywords_saucedemo">
+<robot generator="Robot 7.2 (Python 3.13.1 on win32)" generated="2025-01-20T14:55:14.315332" rpa="false" schemaversion="5">
+<suite id="s1" name="Robot-Framework-Init" source="C:\Users\Administrateur\Desktop\robot-framework-init">
+<suite id="s1-s1" name="Tests" source="C:\Users\Administrateur\Desktop\robot-framework-init\tests">
+<suite id="s1-s1-s1" name="Test Demoqa" source="C:\Users\Administrateur\Desktop\robot-framework-init\tests\test_demoqa.robot">
+<test id="s1-s1-s1-t1" name="Scenario: Test the interactions page" line="22">
+<kw name="Given I Am On The Selectable Of Interactions Page" owner="keywords_demoqa">
 <kw name="Open Website Homepage" owner="keywords_common">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-01-18T11:41:05.662076" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<msg time="2025-01-20T14:55:14.827137" level="INFO">Opening browser 'chrome' to base url 'https://demoqa.com/interaction'.</msg>
 <arg>${url}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-01-18T11:41:05.661445" elapsed="2.752062"/>
+<status status="PASS" start="2025-01-20T14:55:14.826744" elapsed="1.805177"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-01-18T11:41:08.413986" elapsed="0.030758"/>
+<status status="PASS" start="2025-01-20T14:55:16.632162" elapsed="0.018260"/>
 </kw>
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>css=body</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:08.445208" elapsed="0.028736"/>
+<status status="PASS" start="2025-01-20T14:55:16.650645" elapsed="0.013480"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
 <arg>text=${site_name}</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:08.474739" elapsed="0.027107"/>
+<status status="PASS" start="2025-01-20T14:55:16.664452" elapsed="0.016243"/>
 </kw>
-<arg>${BASE_URL}[sd]</arg>
-<arg>${SITE_NAME}[sd]</arg>
+<arg>${DMQ_URL}[int]</arg>
+<arg>${PAGE_NAME}[int]</arg>
 <doc>Open the website homepage.</doc>
-<status status="PASS" start="2025-01-18T11:41:05.660119" elapsed="2.842086"/>
+<status status="PASS" start="2025-01-20T14:55:14.826019" elapsed="1.854989"/>
 </kw>
-<kw name="Login From Login Page" owner="keywords_common">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>locator=${login_input}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:08.503761" elapsed="0.019542"/>
+<kw name="Navigate To The Selectable Page" owner="keywords_demoqa">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//span[.='Selectable']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-20T14:55:16.682001" elapsed="0.018265"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-01-18T11:41:08.525047" level="INFO">Typing text 'standard_user' into text field '//*[@id="user-name"]'.</msg>
-<arg>locator=${login_input}</arg>
-<arg>text=${login}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-18T11:41:08.523888" elapsed="0.190004"/>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>//span[.='Selectable']</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-01-20T14:55:16.700497" elapsed="0.023032"/>
 </kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2025-01-18T11:41:08.715004" level="INFO">Typing password into text field '//*[@id="password"]'.</msg>
-<msg time="2025-01-18T11:41:08.775696" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>locator=${password_input}</arg>
-<arg>password=${password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-18T11:41:08.714290" elapsed="0.150255"/>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>//span[.='Selectable']</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-01-20T14:55:16.723723" elapsed="0.335570"/>
 </kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-01-18T11:41:08.865540" level="INFO">Clicking button '//*[@id="login-button"]'.</msg>
-<arg>locator=${submit_btn}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-18T11:41:08.864930" elapsed="0.145849"/>
-</kw>
-<arg>${SD_LOGIN}[std]</arg>
-<arg>${PWD}[sd]</arg>
-<arg>${LOGIN_INPUT}[sd]</arg>
-<arg>${PWD_INPUT}[sd]</arg>
-<arg>${CONTINUE}[sd]</arg>
-<doc>Login with given credentials</doc>
-<status status="PASS" start="2025-01-18T11:41:08.502616" elapsed="0.508590"/>
-</kw>
-<kw name="Verify User Is Logged In" owner="keywords_common">
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>text=${welcome_text}</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.013412" elapsed="0.044487"/>
-</kw>
-<arg>welcome_text=${WELCOME_TEXT}[sd]</arg>
-<doc>Verify the user is logged in successfully.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.011679" elapsed="0.046563"/>
-</kw>
-<doc>This keyword navigates to the SauceDemo homepage</doc>
-<status status="PASS" start="2025-01-18T11:41:05.654921" elapsed="3.403535"/>
-</kw>
-<kw name="When I Select The Two Most Expensive Products" owner="keywords_saucedemo">
-<kw name="Sort Products By Price" owner="keywords_saucedemo">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>locator=//select[@class='product_sort_container']</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.065482" elapsed="0.016386"/>
-</kw>
-<kw name="Select From List By Value" owner="SeleniumLibrary">
-<msg time="2025-01-18T11:41:09.082881" level="INFO">Selecting options from selection list '//select[@class='product_sort_container']' by value hilo.</msg>
-<arg>//select[@class='product_sort_container']</arg>
-<arg>hilo</arg>
-<doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.082260" elapsed="0.106429"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>text=Price (high to low)</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.189097" elapsed="0.016288"/>
-</kw>
-<doc>This test verifies the user can sort the products by price</doc>
-<status status="PASS" start="2025-01-18T11:41:09.064890" elapsed="0.140855"/>
-</kw>
-<kw name="Verify Products Sorted By Price Descending" owner="keywords_saucedemo">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>locator=//*[@id="inventory_container"]</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.207168" elapsed="0.015780"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>text=Price (high to low)</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.223345" elapsed="0.010609"/>
-</kw>
-<kw name="Get WebElements" owner="SeleniumLibrary">
-<msg time="2025-01-18T11:41:09.250173" level="INFO">${product_prices} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="22cad39fbb19112fb745a4e913773d74", element="f.AAA6536E837BC714A06F4E791764CEF4.d.441E9DC7DCAD8865D8EB4F20811A8BEF.e.61")&gt;, &lt;selenium.webdriv...</msg>
-<var>${product_prices}</var>
-<arg>//*[@id="inventory_container"]//div[@class="inventory_item_price"]</arg>
-<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.234349" elapsed="0.016167"/>
-</kw>
-<kw name="Create List" owner="BuiltIn">
-<msg time="2025-01-18T11:41:09.251635" level="INFO">${prices} = []</msg>
-<var>${prices}</var>
-<doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.250899" elapsed="0.001007"/>
-</kw>
-<for flavor="IN">
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-01-18T11:41:09.270834" level="INFO">${price_text} = $49.99</msg>
-<var>${price_text}</var>
-<arg>${price_element}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.253069" elapsed="0.018011"/>
-</kw>
-<kw name="Convert To Number" owner="BuiltIn">
-<msg time="2025-01-18T11:41:09.272725" level="INFO">${price} = 49.99</msg>
-<var>${price}</var>
-<arg>${price_text.replace('$', '')}</arg>
-<doc>Converts the given item to a floating point number.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.271429" elapsed="0.001516"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${prices}</arg>
-<arg>${price}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.273237" elapsed="0.000580"/>
-</kw>
-<var name="${price_element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="22cad39fbb19112fb745a4e913773d74", element="f.AAA6536E837BC714A06F4E791764CEF4.d.441E9DC7DCAD8865D8EB4F20811A8BEF.e.61")&gt;</var>
-<status status="PASS" start="2025-01-18T11:41:09.252617" elapsed="0.021344"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-01-18T11:41:09.283250" level="INFO">${price_text} = $29.99</msg>
-<var>${price_text}</var>
-<arg>${price_element}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.274853" elapsed="0.008701"/>
-</kw>
-<kw name="Convert To Number" owner="BuiltIn">
-<msg time="2025-01-18T11:41:09.285237" level="INFO">${price} = 29.99</msg>
-<var>${price}</var>
-<arg>${price_text.replace('$', '')}</arg>
-<doc>Converts the given item to a floating point number.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.283910" elapsed="0.001563"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${prices}</arg>
-<arg>${price}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.285761" elapsed="0.000495"/>
-</kw>
-<var name="${price_element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="22cad39fbb19112fb745a4e913773d74", element="f.AAA6536E837BC714A06F4E791764CEF4.d.441E9DC7DCAD8865D8EB4F20811A8BEF.e.62")&gt;</var>
-<status status="PASS" start="2025-01-18T11:41:09.274512" elapsed="0.011893"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-01-18T11:41:09.300930" level="INFO">${price_text} = $15.99</msg>
-<var>${price_text}</var>
-<arg>${price_element}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.287133" elapsed="0.014271"/>
-</kw>
-<kw name="Convert To Number" owner="BuiltIn">
-<msg time="2025-01-18T11:41:09.303303" level="INFO">${price} = 15.99</msg>
-<var>${price}</var>
-<arg>${price_text.replace('$', '')}</arg>
-<doc>Converts the given item to a floating point number.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.301870" elapsed="0.001721"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${prices}</arg>
-<arg>${price}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.303881" elapsed="0.000572"/>
-</kw>
-<var name="${price_element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="22cad39fbb19112fb745a4e913773d74", element="f.AAA6536E837BC714A06F4E791764CEF4.d.441E9DC7DCAD8865D8EB4F20811A8BEF.e.63")&gt;</var>
-<status status="PASS" start="2025-01-18T11:41:09.286622" elapsed="0.018029"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-01-18T11:41:09.315983" level="INFO">${price_text} = $15.99</msg>
-<var>${price_text}</var>
-<arg>${price_element}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.305463" elapsed="0.010919"/>
-</kw>
-<kw name="Convert To Number" owner="BuiltIn">
-<msg time="2025-01-18T11:41:09.318620" level="INFO">${price} = 15.99</msg>
-<var>${price}</var>
-<arg>${price_text.replace('$', '')}</arg>
-<doc>Converts the given item to a floating point number.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.316758" elapsed="0.002328"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${prices}</arg>
-<arg>${price}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.319488" elapsed="0.000607"/>
-</kw>
-<var name="${price_element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="22cad39fbb19112fb745a4e913773d74", element="f.AAA6536E837BC714A06F4E791764CEF4.d.441E9DC7DCAD8865D8EB4F20811A8BEF.e.64")&gt;</var>
-<status status="PASS" start="2025-01-18T11:41:09.304977" elapsed="0.015279"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-01-18T11:41:09.332183" level="INFO">${price_text} = $9.99</msg>
-<var>${price_text}</var>
-<arg>${price_element}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.321092" elapsed="0.011352"/>
-</kw>
-<kw name="Convert To Number" owner="BuiltIn">
-<msg time="2025-01-18T11:41:09.333950" level="INFO">${price} = 9.99</msg>
-<var>${price}</var>
-<arg>${price_text.replace('$', '')}</arg>
-<doc>Converts the given item to a floating point number.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.332778" elapsed="0.001388"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${prices}</arg>
-<arg>${price}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.334443" elapsed="0.000647"/>
-</kw>
-<var name="${price_element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="22cad39fbb19112fb745a4e913773d74", element="f.AAA6536E837BC714A06F4E791764CEF4.d.441E9DC7DCAD8865D8EB4F20811A8BEF.e.65")&gt;</var>
-<status status="PASS" start="2025-01-18T11:41:09.320567" elapsed="0.014694"/>
-</iter>
-<iter>
-<kw name="Get Text" owner="SeleniumLibrary">
-<msg time="2025-01-18T11:41:09.347088" level="INFO">${price_text} = $7.99</msg>
-<var>${price_text}</var>
-<arg>${price_element}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.335791" elapsed="0.011694"/>
-</kw>
-<kw name="Convert To Number" owner="BuiltIn">
-<msg time="2025-01-18T11:41:09.349304" level="INFO">${price} = 7.99</msg>
-<var>${price}</var>
-<arg>${price_text.replace('$', '')}</arg>
-<doc>Converts the given item to a floating point number.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.347918" elapsed="0.001757"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${prices}</arg>
-<arg>${price}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.349982" elapsed="0.000579"/>
-</kw>
-<var name="${price_element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="22cad39fbb19112fb745a4e913773d74", element="f.AAA6536E837BC714A06F4E791764CEF4.d.441E9DC7DCAD8865D8EB4F20811A8BEF.e.66")&gt;</var>
-<status status="PASS" start="2025-01-18T11:41:09.335480" elapsed="0.015248"/>
-</iter>
-<var>${price_element}</var>
-<value>@{product_prices}</value>
-<status status="PASS" start="2025-01-18T11:41:09.252110" elapsed="0.098726"/>
-</for>
-<kw name="Copy List" owner="Collections">
-<msg time="2025-01-18T11:41:09.351747" level="INFO">${sorted_prices} = [49.99, 29.99, 15.99, 15.99, 9.99, 7.99]</msg>
-<var>${sorted_prices}</var>
-<arg>${prices}</arg>
-<doc>Returns a copy of the given list.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.351060" elapsed="0.000942"/>
-</kw>
-<kw name="Sort List" owner="Collections">
-<arg>${sorted_prices}</arg>
-<doc>Sorts the given list in place.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.352263" elapsed="0.000571"/>
-</kw>
-<kw name="Reverse List" owner="Collections">
-<arg>${sorted_prices}</arg>
-<doc>Reverses the given list in place.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.353110" elapsed="0.000556"/>
-</kw>
-<kw name="Should Be Equal As Strings" owner="BuiltIn">
-<arg>${prices}</arg>
-<arg>${sorted_prices}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.353916" elapsed="0.000496"/>
-</kw>
-<doc>This keyword verifies that products are sorted by price from highest to lowest.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.206243" elapsed="0.148348"/>
-</kw>
-<kw name="Add Two Most Expensive Products To Cart" owner="keywords_saucedemo">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>locator=//*[@id="inventory_container"]</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.355473" elapsed="0.009085"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>text=Price (high to low)</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.364883" elapsed="0.008469"/>
-</kw>
-<kw name="Get WebElement" owner="SeleniumLibrary">
-<msg time="2025-01-18T11:41:09.385742" level="INFO">${first_product_add_button} = &lt;selenium.webdriver.remote.webelement.WebElement (session="22cad39fbb19112fb745a4e913773d74", element="f.AAA6536E837BC714A06F4E791764CEF4.d.441E9DC7DCAD8865D8EB4F20811A8BEF.e.67")&gt;</msg>
-<var>${first_product_add_button}</var>
-<arg>//*[@id="inventory_container"]/div/div[1]//button[contains(@id, "add-to-cart")]</arg>
-<doc>Returns the first WebElement matching the given ``locator``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.373918" elapsed="0.012199"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${first_product_add_button}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.386433" elapsed="0.000554"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-01-18T11:41:09.387694" level="INFO">Clicking button '&lt;selenium.webdriver.remote.webelement.WebElement (session="22cad39fbb19112fb745a4e913773d74", element="f.AAA6536E837BC714A06F4E791764CEF4.d.441E9DC7DCAD8865D8EB4F20811A8BEF.e.67")&gt;'.</msg>
-<arg>${first_product_add_button}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.387200" elapsed="0.062210"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>//*[@id="inventory_container"]/div/div[1]//button[contains(@id, "remove")]</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.449757" elapsed="0.015246"/>
-</kw>
-<kw name="Get WebElement" owner="SeleniumLibrary">
-<msg time="2025-01-18T11:41:09.478748" level="INFO">${second_product_add_button} = &lt;selenium.webdriver.remote.webelement.WebElement (session="22cad39fbb19112fb745a4e913773d74", element="f.AAA6536E837BC714A06F4E791764CEF4.d.441E9DC7DCAD8865D8EB4F20811A8BEF.e.68")&gt;</msg>
-<var>${second_product_add_button}</var>
-<arg>//*[@id="inventory_container"]/div/div[2]//button[contains(@id, "add-to-cart")]</arg>
-<doc>Returns the first WebElement matching the given ``locator``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.465325" elapsed="0.014306"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>${second_product_add_button}</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.480224" elapsed="0.001177"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-01-18T11:41:09.482624" level="INFO">Clicking button '&lt;selenium.webdriver.remote.webelement.WebElement (session="22cad39fbb19112fb745a4e913773d74", element="f.AAA6536E837BC714A06F4E791764CEF4.d.441E9DC7DCAD8865D8EB4F20811A8BEF.e.68")&gt;'.</msg>
-<arg>${second_product_add_button}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.481854" elapsed="0.061910"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>//*[@id="inventory_container"]/div/div[2]//button[contains(@id, "remove")]</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.544075" elapsed="0.013543"/>
-</kw>
-<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
-<arg>//*[@id="shopping_cart_container"]/a/span</arg>
-<arg>2</arg>
-<doc>Waits until the element ``locator`` contains ``text``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.558011" elapsed="0.022549"/>
-</kw>
-<doc>This keyword adds the two most expensive products to the cart by dynamically selecting them.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.354931" elapsed="0.225889"/>
-</kw>
-<kw name="Go To Cart And Verify Products" owner="keywords_saucedemo">
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-01-18T11:41:09.582170" level="INFO">Clicking element '//*[@id="shopping_cart_container"]/a'.</msg>
-<arg>locator=//*[@id="shopping_cart_container"]/a</arg>
+<msg time="2025-01-20T14:55:17.060092" level="INFO">Clicking element '//span[.='Selectable']'.</msg>
+<arg>//span[.='Selectable']</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.581721" elapsed="0.081601"/>
+<status status="PASS" start="2025-01-20T14:55:17.059572" elapsed="0.118310"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>text=Your Cart</arg>
+<arg>Selectable</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.663749" elapsed="0.017278"/>
+<status status="PASS" start="2025-01-20T14:55:17.178243" elapsed="0.012048"/>
 </kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>locator=//*[@id="cart_contents_container"]/div/div[1]/div[3]</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.681482" elapsed="0.013976"/>
+<doc>Navigate to the Selectable page.</doc>
+<status status="PASS" start="2025-01-20T14:55:16.681315" elapsed="0.509194"/>
 </kw>
-<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
-<arg>//*[@id="cart_contents_container"]/div/div[1]/div[3]</arg>
-<arg>$49.99</arg>
-<doc>Waits until the element ``locator`` contains ``text``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.695888" elapsed="0.018998"/>
+<doc>Open the Selectable page of the Interactions section.</doc>
+<status status="PASS" start="2025-01-20T14:55:14.823333" elapsed="2.367379"/>
 </kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>locator=//*[@id="cart_contents_container"]/div/div[1]/div[4]</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.715165" elapsed="0.012877"/>
-</kw>
-<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
-<arg>//*[@id="cart_contents_container"]/div/div[1]/div[4]</arg>
-<arg>$29.99</arg>
-<doc>Waits until the element ``locator`` contains ``text``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.728361" elapsed="0.018636"/>
-</kw>
-<doc>This test verifies the user can go to the cart and verify the products</doc>
-<status status="PASS" start="2025-01-18T11:41:09.581161" elapsed="0.166054"/>
-</kw>
-<doc>This keyword verifies the user can select the two most expensive products</doc>
-<status status="PASS" start="2025-01-18T11:41:09.061948" elapsed="0.685385"/>
-</kw>
-<kw name="Then I Can Order The Products" owner="keywords_saucedemo">
-<kw name="Enter Customer Information" owner="keywords_saucedemo">
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-01-18T11:41:09.753086" level="INFO">Clicking button '//*[@id="checkout"]'.</msg>
-<arg>locator=//*[@id="checkout"]</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.752704" elapsed="0.097870"/>
+<kw name="When I Select ${OPTION_A} And ${OPTION_B} On The List Tab" owner="keywords_demoqa" source_name="I Select ${OPTION_A} And ${OPTION_B} On The List Tab">
+<kw name="Select Options And Verify In The List Tab" owner="keywords_demoqa">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-20T14:55:17.196491" level="INFO">Clicking element 'demo-tab-list'.</msg>
+<arg>demo-tab-list</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-20T14:55:17.196281" elapsed="0.069585"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>text=Checkout: Your Information</arg>
+<arg>${option_a}[text]</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.850963" elapsed="0.015507"/>
+<status status="PASS" start="2025-01-20T14:55:17.266097" elapsed="0.008842"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-01-18T11:41:09.867485" level="INFO">Typing text 'Damien' into text field '//*[@id="first-name"]'.</msg>
-<arg>locator=//*[@id="first-name"]</arg>
-<arg>text=Damien</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.866840" elapsed="0.108661"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-20T14:55:17.275574" level="INFO">Clicking element '//*[@id="verticalListContainer"]/li[3]'.</msg>
+<arg>${option_a}[locator]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-20T14:55:17.275134" elapsed="0.050071"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-01-18T11:41:09.976415" level="INFO">Typing text 'Automatisation' into text field '//*[@id="last-name"]'.</msg>
-<arg>locator=//*[@id="last-name"]</arg>
-<arg>text=Automatisation</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-18T11:41:09.975881" elapsed="0.127158"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-01-18T11:41:10.103768" level="INFO">Typing text '75000' into text field '//*[@id="postal-code"]'.</msg>
-<arg>locator=//*[@id="postal-code"]</arg>
-<arg>text=75000</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-18T11:41:10.103328" elapsed="0.093203"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-01-18T11:41:10.197294" level="INFO">Clicking button '//*[@id="continue"]'.</msg>
-<arg>locator=//*[@id="continue"]</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-18T11:41:10.196798" elapsed="0.097978"/>
-</kw>
-<doc>This test verifies the user can enter customer information and verify the prices</doc>
-<status status="PASS" start="2025-01-18T11:41:09.752244" elapsed="0.542842"/>
-</kw>
-<kw name="Verify Prices" owner="keywords_saucedemo">
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>text=Checkout: Overview</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:10.296401" elapsed="0.014194"/>
+<kw name="Element Attribute Value Should Be" owner="SeleniumLibrary">
+<msg time="2025-01-20T14:55:17.336392" level="INFO">Element '//*[@id="verticalListContainer"]/li[3]' attribute 'class' contains value 'mt-2 list-group-item active list-group-item-action'.</msg>
+<arg>${option_a}[locator]</arg>
+<arg>class</arg>
+<arg>mt-2 list-group-item active list-group-item-action</arg>
+<doc>Verifies element identified by ``locator`` contains expected attribute value.</doc>
+<status status="PASS" start="2025-01-20T14:55:17.325568" elapsed="0.011018"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>text=Sauce Labs Fleece Jacket</arg>
+<arg>${option_b}[text]</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:10.310883" elapsed="0.012121"/>
+<status status="PASS" start="2025-01-20T14:55:17.336778" elapsed="0.009399"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-20T14:55:17.346737" level="INFO">Clicking element '//*[@id="verticalListContainer"]/li[1]'.</msg>
+<arg>${option_b}[locator]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-20T14:55:17.346385" elapsed="0.045345"/>
+</kw>
+<kw name="Element Attribute Value Should Be" owner="SeleniumLibrary">
+<msg time="2025-01-20T14:55:17.402502" level="INFO">Element '//*[@id="verticalListContainer"]/li[1]' attribute 'class' contains value 'mt-2 list-group-item active list-group-item-action'.</msg>
+<arg>${option_b}[locator]</arg>
+<arg>class</arg>
+<arg>mt-2 list-group-item active list-group-item-action</arg>
+<doc>Verifies element identified by ``locator`` contains expected attribute value.</doc>
+<status status="PASS" start="2025-01-20T14:55:17.391984" elapsed="0.010714"/>
+</kw>
+<arg>${OPTION_A}</arg>
+<arg>${OPTION_B}</arg>
+<doc>Select options in the list tab.</doc>
+<status status="PASS" start="2025-01-20T14:55:17.195888" elapsed="0.206945"/>
+</kw>
+<doc>Select "OPTION A" and "OPTION B" on the list tab.</doc>
+<status status="PASS" start="2025-01-20T14:55:17.193367" elapsed="0.209550"/>
+</kw>
+<kw name="And I Select ${OPTION_C}, ${OPTION_D} And ${OPTION_E} On The Grid Tab" owner="keywords_demoqa" source_name="I Select ${OPTION_C}, ${OPTION_D} And ${OPTION_E} On The Grid Tab">
+<kw name="Select Options And Verify In The Grid Tab" owner="keywords_demoqa">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-20T14:55:17.406183" level="INFO">Clicking element 'demo-tab-grid'.</msg>
+<arg>demo-tab-grid</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-20T14:55:17.405990" elapsed="0.050360"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-20T14:55:17.456918" level="INFO">Clicking element '//*[@id="row1"]/li[1]'.</msg>
+<arg>${option_c}[locator]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-20T14:55:17.456578" elapsed="0.052634"/>
+</kw>
+<kw name="Element Attribute Value Should Be" owner="SeleniumLibrary">
+<msg time="2025-01-20T14:55:17.519629" level="INFO">Element '//*[@id="row1"]/li[1]' attribute 'class' contains value 'list-group-item active list-group-item-action'.</msg>
+<arg>${option_c}[locator]</arg>
+<arg>class</arg>
+<arg>list-group-item active list-group-item-action</arg>
+<doc>Verifies element identified by ``locator`` contains expected attribute value.</doc>
+<status status="PASS" start="2025-01-20T14:55:17.509479" elapsed="0.010363"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-20T14:55:17.520601" level="INFO">Clicking element '//*[@id="row2"]/li[2]'.</msg>
+<arg>${option_d}[locator]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-20T14:55:17.520226" elapsed="0.049886"/>
+</kw>
+<kw name="Element Attribute Value Should Be" owner="SeleniumLibrary">
+<msg time="2025-01-20T14:55:17.580180" level="INFO">Element '//*[@id="row2"]/li[2]' attribute 'class' contains value 'list-group-item active list-group-item-action'.</msg>
+<arg>${option_d}[locator]</arg>
+<arg>class</arg>
+<arg>list-group-item active list-group-item-action</arg>
+<doc>Verifies element identified by ``locator`` contains expected attribute value.</doc>
+<status status="PASS" start="2025-01-20T14:55:17.570315" elapsed="0.010069"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>text=Sauce Labs Backpack</arg>
+<arg>${option_e}[text]</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:10.323333" elapsed="0.013238"/>
+<status status="PASS" start="2025-01-20T14:55:17.580569" elapsed="0.008558"/>
 </kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>locator=//*[@id="checkout_summary_container"]/div/div[1]/div[3]</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:10.336902" elapsed="0.013000"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${option_e}[locator]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-20T14:55:17.589316" elapsed="0.015241"/>
 </kw>
-<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
-<arg>//*[@id="checkout_summary_container"]/div/div[1]/div[3]</arg>
-<arg>$49.99</arg>
-<doc>Waits until the element ``locator`` contains ``text``.</doc>
-<status status="PASS" start="2025-01-18T11:41:10.350212" elapsed="0.018069"/>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${option_e}[locator]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-01-20T14:55:17.604750" elapsed="0.290407"/>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>text=$29.99</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:10.368635" elapsed="0.013578"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-01-20T14:55:17.896648" level="INFO">Clicking element '//*[@id="row3"]/li[3]'.</msg>
+<msg time="2025-01-20T14:55:19.136682" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-117.png"&gt;&lt;img src="selenium-screenshot-117.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-01-20T14:55:19.137002" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element &lt;li class="list-group-item list-group-item-action"&gt;...&lt;/li&gt; is not clickable at point (770, 834). Other element would receive the click: &lt;iframe frameborder="0" src="https://1105e879b45aa52bf3b2ac252ada6b8e.safeframe.googlesyndication.com/safeframe/1-0-40/html/container.html" id="google_ads_iframe_/21849154601,22343295815/Ad.Plus-Anchor_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="728" height="90" data-is-safeframe="true" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="private-state-token-redemption;attribution-reporting" aria-label="Advertisement" tabindex="0" data-google-container-id="1" style="border: 0px; vertical-align: bottom;" data-load-complete="true"&gt;&lt;/iframe&gt;
+  (Session info: chrome=132.0.6834.84)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6E038FBE5+28741]
+	(No symbol) [0x00007FF6E02F7890]
+	(No symbol) [0x00007FF6E0194FDA]
+	(No symbol) [0x00007FF6E01F1048]
+	(No symbol) [0x00007FF6E01EEA92]
+	(No symbol) [0x00007FF6E01EBBA1]
+	(No symbol) [0x00007FF6E01EAB01]
+	(No symbol) [0x00007FF6E01DC574]
+	(No symbol) [0x00007FF6E020FF0A]
+	(No symbol) [0x00007FF6E01DBE46]
+	(No symbol) [0x00007FF6E0210120]
+	(No symbol) [0x00007FF6E02300B4]
+	(No symbol) [0x00007FF6E020FCB3]
+	(No symbol) [0x00007FF6E01D9FB3]
+	(No symbol) [0x00007FF6E01DB331]
+	GetHandleVerifier [0x00007FF6E06CA73D+3414941]
+	GetHandleVerifier [0x00007FF6E06DE64A+3496618]
+	GetHandleVerifier [0x00007FF6E06D413D+3454365]
+	GetHandleVerifier [0x00007FF6E045848B+850155]
+	(No symbol) [0x00007FF6E03037FF]
+	(No symbol) [0x00007FF6E02FF0C4]
+	(No symbol) [0x00007FF6E02FF25D]
+	(No symbol) [0x00007FF6E02EE079]
+	BaseThreadInitThunk [0x00007FFC64EC259D+29]
+	RtlUserThreadStart [0x00007FFC65CCAF38+40]
+</msg>
+<arg>${option_e}[locator]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2025-01-20T14:55:17.895786" elapsed="1.244415">ElementClickInterceptedException: Message: element click intercepted: Element &lt;li class="list-group-item list-group-item-action"&gt;...&lt;/li&gt; is not clickable at point (770, 834). Other element would receive the click: &lt;iframe frameborder="0" src="https://1105e879b45aa52bf3b2ac252ada6b8e.safeframe.googlesyndication.com/safeframe/1-0-40/html/container.html" id="google_ads_iframe_/21849154601,22343295815/Ad.Plus-Anchor_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="728" height="90" data-is-safeframe="true" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="private-state-token-redemption;attribution-reporting" aria-label="Advertisement" tabindex="0" data-google-container-id="1" style="border: 0px; vertical-align: bottom;" data-load-complete="true"&gt;&lt;/iframe&gt;
+  (Session info: chrome=132.0.6834.84)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6E038FBE5+28741]
+	(No symbol) [0x00007FF6E02F7890]
+	(No symbol) [0x00007FF6E0194FDA]
+	(No symbol) [0x00007FF6E01F1048]
+	(No symbol) [0x00007FF6E01EEA92]
+	(No symbol) [0x00007FF6E01EBBA1]
+	(No symbol) [0x00007FF6E01EAB01]
+	(No symbol) [0x00007FF6E01DC574]
+	(No symbol) [0x00007FF6E020FF0A]
+	(No symbol) [0x00007FF6E01DBE46]
+	(No symbol) [0x00007FF6E0210120]
+	(No symbol) [0x00007FF6E02300B4]
+	(No symbol) [0x00007FF6E020FCB3]
+	(No symbol) [0x00007FF6E01D9FB3]
+	(No symbol) [0x00007FF6E01DB331]
+	GetHandleVerifier [0x00007FF6E06CA73D+3414941]
+	GetHandleVerifier [0x00007FF6E06DE64A+3496618]
+	GetHandleVerifier [0x00007FF6E06D413D+3454365]
+	GetHandleVerifier [0x00007FF6E045848B+850155]
+	(No symbol) [0x00007FF6E03037FF]
+	(No symbol) [0x00007FF6E02FF0C4]
+	(No symbol) [0x00007FF6E02FF25D]
+	(No symbol) [0x00007FF6E02EE079]
+	BaseThreadInitThunk [0x00007FFC64EC259D+29]
+	RtlUserThreadStart [0x00007FFC65CCAF38+40]
+</status>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>text=Item total: $79.98</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:10.382503" elapsed="0.013160"/>
+<kw name="Element Attribute Value Should Be" owner="SeleniumLibrary">
+<arg>${option_e}[locator]</arg>
+<arg>class</arg>
+<arg>list-group-item active list-group-item-action</arg>
+<doc>Verifies element identified by ``locator`` contains expected attribute value.</doc>
+<status status="NOT RUN" start="2025-01-20T14:55:19.140429" elapsed="0.000217"/>
 </kw>
-<doc>This test verifies the prices</doc>
-<status status="PASS" start="2025-01-18T11:41:10.295465" elapsed="0.100759"/>
+<arg>${OPTION_C}</arg>
+<arg>${OPTION_D}</arg>
+<arg>${OPTION_E}</arg>
+<doc>Select options in the grid tab.</doc>
+<status status="FAIL" start="2025-01-20T14:55:17.405667" elapsed="1.735183">ElementClickInterceptedException: Message: element click intercepted: Element &lt;li class="list-group-item list-group-item-action"&gt;...&lt;/li&gt; is not clickable at point (770, 834). Other element would receive the click: &lt;iframe frameborder="0" src="https://1105e879b45aa52bf3b2ac252ada6b8e.safeframe.googlesyndication.com/safeframe/1-0-40/html/container.html" id="google_ads_iframe_/21849154601,22343295815/Ad.Plus-Anchor_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="728" height="90" data-is-safeframe="true" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="private-state-token-redemption;attribution-reporting" aria-label="Advertisement" tabindex="0" data-google-container-id="1" style="border: 0px; vertical-align: bottom;" data-load-complete="true"&gt;&lt;/iframe&gt;
+  (Session info: chrome=132.0.6834.84)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6E038FBE5+28741]
+	(No symbol) [0x00007FF6E02F7890]
+	(No symbol) [0x00007FF6E0194FDA]
+	(No symbol) [0x00007FF6E01F1048]
+	(No symbol) [0x00007FF6E01EEA92]
+	(No symbol) [0x00007FF6E01EBBA1]
+	(No symbol) [0x00007FF6E01EAB01]
+	(No symbol) [0x00007FF6E01DC574]
+	(No symbol) [0x00007FF6E020FF0A]
+	(No symbol) [0x00007FF6E01DBE46]
+	(No symbol) [0x00007FF6E0210120]
+	(No symbol) [0x00007FF6E02300B4]
+	(No symbol) [0x00007FF6E020FCB3]
+	(No symbol) [0x00007FF6E01D9FB3]
+	(No symbol) [0x00007FF6E01DB331]
+	GetHandleVerifier [0x00007FF6E06CA73D+3414941]
+	GetHandleVerifier [0x00007FF6E06DE64A+3496618]
+	GetHandleVerifier [0x00007FF6E06D413D+3454365]
+	GetHandleVerifier [0x00007FF6E045848B+850155]
+	(No symbol) [0x00007FF6E03037FF]
+	(No symbol) [0x00007FF6E02FF0C4]
+	(No symbol) [0x00007FF6E02FF25D]
+	(No symbol) [0x00007FF6E02EE079]
+	BaseThreadInitThunk [0x00007FFC64EC259D+29]
+	RtlUserThreadStart [0x00007FFC65CCAF38+40]
+</status>
 </kw>
-<kw name="Complete The Order" owner="keywords_saucedemo">
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-01-18T11:41:10.397675" level="INFO">Clicking button '//*[@id="finish"]'.</msg>
-<arg>locator=//*[@id="finish"]</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-18T11:41:10.397235" elapsed="0.088374"/>
+<doc>Select "OPTION C" on the grid tab.</doc>
+<status status="FAIL" start="2025-01-20T14:55:17.404248" elapsed="1.736806">ElementClickInterceptedException: Message: element click intercepted: Element &lt;li class="list-group-item list-group-item-action"&gt;...&lt;/li&gt; is not clickable at point (770, 834). Other element would receive the click: &lt;iframe frameborder="0" src="https://1105e879b45aa52bf3b2ac252ada6b8e.safeframe.googlesyndication.com/safeframe/1-0-40/html/container.html" id="google_ads_iframe_/21849154601,22343295815/Ad.Plus-Anchor_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="728" height="90" data-is-safeframe="true" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="private-state-token-redemption;attribution-reporting" aria-label="Advertisement" tabindex="0" data-google-container-id="1" style="border: 0px; vertical-align: bottom;" data-load-complete="true"&gt;&lt;/iframe&gt;
+  (Session info: chrome=132.0.6834.84)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6E038FBE5+28741]
+	(No symbol) [0x00007FF6E02F7890]
+	(No symbol) [0x00007FF6E0194FDA]
+	(No symbol) [0x00007FF6E01F1048]
+	(No symbol) [0x00007FF6E01EEA92]
+	(No symbol) [0x00007FF6E01EBBA1]
+	(No symbol) [0x00007FF6E01EAB01]
+	(No symbol) [0x00007FF6E01DC574]
+	(No symbol) [0x00007FF6E020FF0A]
+	(No symbol) [0x00007FF6E01DBE46]
+	(No symbol) [0x00007FF6E0210120]
+	(No symbol) [0x00007FF6E02300B4]
+	(No symbol) [0x00007FF6E020FCB3]
+	(No symbol) [0x00007FF6E01D9FB3]
+	(No symbol) [0x00007FF6E01DB331]
+	GetHandleVerifier [0x00007FF6E06CA73D+3414941]
+	GetHandleVerifier [0x00007FF6E06DE64A+3496618]
+	GetHandleVerifier [0x00007FF6E06D413D+3454365]
+	GetHandleVerifier [0x00007FF6E045848B+850155]
+	(No symbol) [0x00007FF6E03037FF]
+	(No symbol) [0x00007FF6E02FF0C4]
+	(No symbol) [0x00007FF6E02FF25D]
+	(No symbol) [0x00007FF6E02EE079]
+	BaseThreadInitThunk [0x00007FFC64EC259D+29]
+	RtlUserThreadStart [0x00007FFC65CCAF38+40]
+</status>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>text=Checkout: Complete!</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:10.485982" elapsed="0.015838"/>
+<kw name="Then I Should Be Able To See All The Items Selected Back In The Lab Tab" owner="keywords_demoqa">
+<doc>Verify all the items are selected in both tabs.</doc>
+<status status="NOT RUN" start="2025-01-20T14:55:19.142534" elapsed="0.001117"/>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>text=Thank you for your order!</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:10.502129" elapsed="0.013565"/>
-</kw>
-<doc>This test verifies the user can complete the order</doc>
-<status status="PASS" start="2025-01-18T11:41:10.396570" elapsed="0.119338"/>
-</kw>
-<kw name="Verify Order Completion" owner="keywords_saucedemo">
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>locator=//*[@id="checkout_complete_container"]/h2</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-18T11:41:10.516707" elapsed="0.012432"/>
-</kw>
-<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
-<arg>//*[@id="checkout_complete_container"]/h2</arg>
-<arg>Thank you for your order!</arg>
-<doc>Waits until the element ``locator`` contains ``text``.</doc>
-<status status="PASS" start="2025-01-18T11:41:10.529588" elapsed="0.016658"/>
-</kw>
-<doc>Verify the order completion</doc>
-<status status="PASS" start="2025-01-18T11:41:10.516155" elapsed="0.030322"/>
-</kw>
-<kw name="Close Browser" owner="keywords_common">
-<kw name="Close All Browsers" owner="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" start="2025-01-18T11:41:10.547354" elapsed="2.190117"/>
-</kw>
-<doc>Close the browser.</doc>
-<status status="PASS" start="2025-01-18T11:41:10.546761" elapsed="2.190950"/>
-</kw>
-<doc>This keyword verifies the user can order the products</doc>
-<status status="PASS" start="2025-01-18T11:41:09.749253" elapsed="2.988561"/>
-</kw>
-<doc>This test verifies the user can complete the checkout process</doc>
-<status status="PASS" start="2025-01-18T11:41:05.653011" elapsed="7.087310"/>
+<status status="FAIL" start="2025-01-20T14:55:14.822248" elapsed="4.322554">ElementClickInterceptedException: Message: element click intercepted: Element &lt;li class="list-group-item list-group-item-action"&gt;...&lt;/li&gt; is not clickable at point (770, 834). Other element would receive the click: &lt;iframe frameborder="0" src="https://1105e879b45aa52bf3b2ac252ada6b8e.safeframe.googlesyndication.com/safeframe/1-0-40/html/container.html" id="google_ads_iframe_/21849154601,22343295815/Ad.Plus-Anchor_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="728" height="90" data-is-safeframe="true" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="private-state-token-redemption;attribution-reporting" aria-label="Advertisement" tabindex="0" data-google-container-id="1" style="border: 0px; vertical-align: bottom;" data-load-complete="true"&gt;&lt;/iframe&gt;
+  (Session info: chrome=132.0.6834.84)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6E038FBE5+28741]
+	(No symbol) [0x00007FF6E02F7890]
+	(No symbol) [0x00007FF6E0194FDA]
+	(No symbol) [0x00007FF6E01F1048]
+	(No symbol) [0x00007FF6E01EEA92]
+	(No symbol) [0x00007FF6E01EBBA1]
+	(No symbol) [0x00007FF6E01EAB01]
+	(No symbol) [0x00007FF6E01DC574]
+	(No symbol) [0x00007FF6E020FF0A]
+	(No symbol) [0x00007FF6E01DBE46]
+	(No symbol) [0x00007FF6E0210120]
+	(No symbol) [0x00007FF6E02300B4]
+	(No symbol) [0x00007FF6E020FCB3]
+	(No symbol) [0x00007FF6E01D9FB3]
+	(No symbol) [0x00007FF6E01DB331]
+	GetHandleVerifier [0x00007FF6E06CA73D+3414941]
+	GetHandleVerifier [0x00007FF6E06DE64A+3496618]
+	GetHandleVerifier [0x00007FF6E06D413D+3454365]
+	GetHandleVerifier [0x00007FF6E045848B+850155]
+	(No symbol) [0x00007FF6E03037FF]
+	(No symbol) [0x00007FF6E02FF0C4]
+	(No symbol) [0x00007FF6E02FF25D]
+	(No symbol) [0x00007FF6E02EE079]
+	BaseThreadInitThunk [0x00007FFC64EC259D+29]
+	RtlUserThreadStart [0x00007FFC65CCAF38+40]
+</status>
 </test>
-<doc>Test cases for RobotFramework with SauceDemo</doc>
-<status status="PASS" start="2025-01-18T11:41:05.257798" elapsed="7.484002"/>
+<doc>Test cases for DemoQA</doc>
+<status status="FAIL" start="2025-01-20T14:55:14.338478" elapsed="4.811074"/>
 </suite>
-<status status="PASS" start="2025-01-18T11:41:05.254465" elapsed="7.488734"/>
+<status status="FAIL" start="2025-01-20T14:55:14.336055" elapsed="4.814944"/>
 </suite>
-<status status="PASS" start="2025-01-18T11:41:05.225096" elapsed="7.519352"/>
+<status status="FAIL" start="2025-01-20T14:55:14.319525" elapsed="4.832601"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Robot-Framework-Init" id="s1" pass="1" fail="0" skip="0">Robot-Framework-Init</stat>
-<stat name="Tests" id="s1-s1" pass="1" fail="0" skip="0">Robot-Framework-Init.Tests</stat>
-<stat name="Tests Saucedemo" id="s1-s1-s1" pass="1" fail="0" skip="0">Robot-Framework-Init.Tests.Tests Saucedemo</stat>
+<stat name="Robot-Framework-Init" id="s1" pass="0" fail="1" skip="0">Robot-Framework-Init</stat>
+<stat name="Tests" id="s1-s1" pass="0" fail="1" skip="0">Robot-Framework-Init.Tests</stat>
+<stat name="Test Demoqa" id="s1-s1-s1" pass="0" fail="1" skip="0">Robot-Framework-Init.Tests.Test Demoqa</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2025-01-20T14:55:14.812022" level="ERROR">Error in file 'C:\Users\Administrateur\Desktop\robot-framework-init\resources\libraries.resource' on line 8: Importing library 'Random' failed: ModuleNotFoundError: No module named 'Random'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Users\Administrateur\Desktop\robot-framework-init\lib
+  C:\Users\Administrateur\Desktop\robot-framework-init\resources
+  c:\Users\Administrateur\.vscode\extensions\d-biehl.robotcode-0.106.1\bundled\libs
+  c:\Users\Administrateur\.vscode\extensions\d-biehl.robotcode-0.106.1\bundled\tool\robotcode
+  C:\Users\Administrateur\AppData\Local\Programs\Python\Python313\python313.zip
+  C:\Users\Administrateur\AppData\Local\Programs\Python\Python313\DLLs
+  C:\Users\Administrateur\AppData\Local\Programs\Python\Python313\Lib
+  C:\Users\Administrateur\AppData\Local\Programs\Python\Python313
+  C:\Users\Administrateur\AppData\Local\Programs\Python\Python313\Lib\site-packages</msg>
 </errors>
 </robot>

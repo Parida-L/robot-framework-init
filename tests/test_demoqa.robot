@@ -9,22 +9,22 @@ Scenario: Test the Bookstore Application
 # Rechercher Designing Evolvable et s'assurer que l'auteur est bien Glenn Block et al.
     [Documentation]    This test verifies the user can interact with the Bookstore application
     Given I Am On The Bookstore Application
-    When I Search For "BOOK TITLE"
+    When I Search For ${BOOK_TITLE}
     Then I Should Be Able To See The Corresponding Author
     
-# Scenario: Test the Bookstore Login 
+Scenario: Test the Bookstore Login 
 # # Sur la même page, cliquez sur login > register > revenir sur la page de départ 
 # # et s'assurer que dans le user name il y a bien le username
-#     Given I Register From The Bookstore Login Page
-#     When I am redirected to the main page
-#     Then the username should be present
+     Given I Register From The Bookstore Login Page
+     When I Am Redirected To The Main Page
+     Then The Correct Username Placeholder Should Be Present
 
-# Scenario: Test the interactions page
+Scenario: Test the interactions page
 # # Ensuite, cliquer sur interactions > Selectable et sélectionner Morbi leo risus et Cras justo odio 
-#     Given I Am On The Selectable Of Interactions Page
-#     When I Select "OPTION A" And "OPTION B" On The List Tab
-#     And I Select "OPTION C" On The Grid Tab
-#     Then I Should Be Able To See All The Items Selected In Both Tabss
+    Given I Am On The Selectable Of Interactions Page
+    When I Select ${OPTION_A} And ${OPTION_B} On The List Tab
+    And I Select ${OPTION_C}, ${OPTION_D} And ${OPTION_E} On The Grid Tab
+    Then I Should Be Able To See All The Items Selected Back In The Lab Tab
 
 # Scenario: Test the Widgets page
 # # Ensuite sur Widgets, date picker > dans date and time , sélectionner le 5 novembre 2035 à 23h45
