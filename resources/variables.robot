@@ -38,11 +38,13 @@ ${ITEM_CART_ASS}     BONNET
 
 #DEMOQA
 
-&{DMQ_URL}         bk=https://demoqa.com/books    log=https://demoqa.com/login    sel=https://demoqa.com/selectable    dp=https://demoqa.com/date-picker    alt=https://demoqa.com/alerts    cb=https://demoqa.com/checkbox    reg=https://demoqa.com/register    int=https://demoqa.com/interaction
+&{DMQ_URL}         bk=https://demoqa.com/books    log=https://demoqa.com/login    sel=https://demoqa.com/selectable    dp=https://demoqa.com/date-picker    alt=https://demoqa.com/alerts    cb=https://demoqa.com/checkbox    reg=https://demoqa.com/register    int=https://demoqa.com/interaction   
 ${BOOK_TITLE}      Designing Evolvable
 ${AUTHOR}          Glenn Block et al.
-&{PAGE_NAME}       bk=Book Store    log=Login    reg=Register   sel=Selectable    int=Interactions
-&{SPE_LOC}         bk=//*[@id="searchBox"]    log=//*[@id="login"]    reg=//*[@id="newUser"]
+&{PAGE_NAME}       bk=Book Store    log=Login    reg=Register   sel=Selectable    int=Interactions    
+...    dp=Date Picker    alt=Alerts
+&{SPE_LOC}         bk=//*[@id="searchBox"]    log=//*[@id="login"]    reg=//*[@id="newUser"]    
+...    dp=//input[@id='datePickerMonthYearInput']    alt=//span[.='Alerts']
 &{OPTION_A}        text=Morbi leo risus    locator=//*[@id="verticalListContainer"]/li[3]
 &{OPTION_B}        text=Cras justo odio    locator=//*[@id="verticalListContainer"]/li[1]
 &{OPTION_C}        text=One    locator=//*[@id="row1"]/li[1]

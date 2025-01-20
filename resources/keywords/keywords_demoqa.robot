@@ -51,7 +51,8 @@ I Am On The Selectable Of Interactions Page
 
 I Select ${OPTION_A} And ${OPTION_B} On The List Tab
     [Documentation]    Select "OPTION A" and "OPTION B" on the list tab.
-    Select Options And Verify In The List Tab    ${OPTION_A}    ${OPTION_B}
+    Select Options In The List Tab    ${OPTION_A}    ${OPTION_B}
+    Verify The Options Are Selected In The List Tab    ${OPTION_A}    ${OPTION_B}
 
 I Select ${OPTION_C}, ${OPTION_D} And ${OPTION_E} On The Grid Tab
     [Documentation]    Select "OPTION C" on the grid tab.
@@ -59,8 +60,41 @@ I Select ${OPTION_C}, ${OPTION_D} And ${OPTION_E} On The Grid Tab
 
 I Should Be Able To See All The Items Selected Back In The Lab Tab
     [Documentation]    Verify all the items are selected in both tabs.
-    Navigate To The Selectable Page
-    #Verify The Options Are Selected    ${OPTION_A}    ${OPTION_B}
+    Click Element                    demo-tab-list
+    Verify The Options Are Selected In The List Tab    ${OPTION_A}    ${OPTION_B}
+    Close Browser
+
+#WIDGETS
+
+I Am On The Date Picker Of Widgets Page
+    [Documentation]    Open the Date Picker page of the Widgets section.
+    Open Website Homepage    ${DMQ_URL}[dp]    ${PAGE_NAME}[dp]
+    Verify The Page Is Correct   ${PAGE_NAME}[dp]    spe_loc=${SPE_LOC}[dp]
+
+I Select "5 November 2035" At "23:45"
+    [Documentation]    Select the date and time.
+    Select The Date
+    Select The Time
+
+I Should Be Able To See The Date Selected
+     [Documentation]    Verify the date is selected.
+     Verify The Date And Time Selected
+     Close Browser
+
+I Am On The Alerts, Frame & Windows Page
+    [Documentation]    Open the Alerts, Frame & Windows page.
+    Open Website Homepage    ${DMQ_URL}[alt]    ${PAGE_NAME}[dp]
+    Verify The Page Is Correct   ${PAGE_NAME}[alt]    spe_loc=${SPE_LOC}[alt]
+
+I Click On Each Button And Verify The Alerts
+    [Documentation]    Click on each button and verify the alerts.
+    # To be implemented
+    # Click On Each Button And Verify The Alerts
+
+I Should Be Able To See The Corresponding Alerts
+    [Documentation]    Verify the corresponding alerts.
+    # To be implemented
+
 
 #SOUS KEYWORDS    
 
@@ -128,16 +162,20 @@ Navigate To The Selectable Page
     Click Element                    //span[.='Selectable']
     Wait Until Page Contains    Selectable
 
-Select Options And Verify In The List Tab
+Select Options In The List Tab
     [Documentation]    Select options in the list tab.
     [Arguments]    ${option_a}    ${option_b}
     Click Element                    demo-tab-list
     Wait Until Page Contains        ${option_a}[text]
     Click Element                   ${option_a}[locator]
-    Element Attribute Value Should Be    ${option_a}[locator]    class    
-    ...    mt-2 list-group-item active list-group-item-action
     Wait Until Page Contains        ${option_b}[text]
     Click Element                   ${option_b}[locator]
+
+Verify The Options Are Selected In The List Tab
+    [Documentation]    Verify the options are selected in the list tab.
+    [Arguments]    ${option_a}    ${option_b}
+    Element Attribute Value Should Be    ${option_a}[locator]    class    
+    ...    mt-2 list-group-item active list-group-item-action
     Element Attribute Value Should Be    ${option_b}[locator]    class    
     ...    mt-2 list-group-item active list-group-item-action
 
@@ -153,8 +191,30 @@ Select Options And Verify In The Grid Tab
     ...    list-group-item active list-group-item-action
     Wait Until Page Contains        ${option_e}[text]
     Wait Until Element Is Visible    ${option_e}[locator]
-    Scroll Element Into View    ${option_e}[locator]
-    # Execute JavaScript    arguments[0].scrollIntoView(true);    ${option_e}[locator]
+    #Scroll Element Into View    ${option_e}[locator]
+    #${element}=    Get Webelement    xpath=//*[@id="row3"]/li[3]
+    #Execute Javascript    arguments[0].scrollIntoView(true);    ${element}
+    Execute Javascript    document.evaluate("//*[@id='row3']/li[3]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.scrollIntoView(true);
     Click Element                   ${option_e}[locator]
     Element Attribute Value Should Be    ${option_e}[locator]    class
     ...    list-group-item active list-group-item-action
+
+Select The Date
+        [Documentation]    Select the date.
+        Click Element    ${SPE_LOC}[dp]
+        Execute Javascript    document.getElementById('datePickerMonthYearInput').value = '';
+        Input Text    id=datePickerMonthYearInput    11/05/2035
+        Click Element    //*[@id="datePickerContainer"]/div[2]/div[1]
+
+Select The Time
+        [Documentation]    Select the time.
+        Click Element    //*[@id="dateAndTimePickerInput"]
+        Execute Javascript    document.getElementById('dateAndTimePickerInput').value = '';
+        Input Text    id=dateAndTimePickerInput    November 5, 2025 11:45 P
+        Click Element    //*[@id="datePickerContainer"]/div[2]/div[1]
+
+Verify The Date And Time Selected
+        [Documentation]    Verify the date and time are selected.
+        Wait Until Page Contains Element    xpath=//*[@id="dateAndTimePickerInput"]
+        ${selected_date}=    Get Value    xpath=//*[@id="dateAndTimePickerInput"]
+        Should Be Equal As Strings    ${selected_date}    November 5, 2025 11:45 PM

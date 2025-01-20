@@ -1,366 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2 (Python 3.13.1 on win32)" generated="2025-01-20T14:55:14.315332" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2 (Python 3.13.1 on win32)" generated="2025-01-20T16:44:57.163773" rpa="false" schemaversion="5">
 <suite id="s1" name="Robot-Framework-Init" source="C:\Users\Administrateur\Desktop\robot-framework-init">
 <suite id="s1-s1" name="Tests" source="C:\Users\Administrateur\Desktop\robot-framework-init\tests">
 <suite id="s1-s1-s1" name="Test Demoqa" source="C:\Users\Administrateur\Desktop\robot-framework-init\tests\test_demoqa.robot">
-<test id="s1-s1-s1-t1" name="Scenario: Test the interactions page" line="22">
-<kw name="Given I Am On The Selectable Of Interactions Page" owner="keywords_demoqa">
+<test id="s1-s1-s1-t1" name="Scenario: Test the alerts page" line="37">
+<kw name="Given I Am On The Alerts, Frame &amp; Windows Page" owner="keywords_demoqa">
 <kw name="Open Website Homepage" owner="keywords_common">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-01-20T14:55:14.827137" level="INFO">Opening browser 'chrome' to base url 'https://demoqa.com/interaction'.</msg>
+<msg time="2025-01-20T16:44:57.706922" level="INFO">Opening browser 'chrome' to base url 'https://demoqa.com/alerts'.</msg>
 <arg>${url}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-01-20T14:55:14.826744" elapsed="1.805177"/>
+<status status="PASS" start="2025-01-20T16:44:57.706430" elapsed="1.919505"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-01-20T14:55:16.632162" elapsed="0.018260"/>
+<status status="PASS" start="2025-01-20T16:44:59.626189" elapsed="0.036131"/>
 </kw>
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>css=body</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-20T14:55:16.650645" elapsed="0.013480"/>
+<status status="PASS" start="2025-01-20T16:44:59.663107" elapsed="0.011955"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
 <arg>text=${site_name}</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-20T14:55:16.664452" elapsed="0.016243"/>
+<status status="PASS" start="2025-01-20T16:44:59.675259" elapsed="0.009207"/>
 </kw>
-<arg>${DMQ_URL}[int]</arg>
-<arg>${PAGE_NAME}[int]</arg>
+<arg>${DMQ_URL}[alt]</arg>
+<arg>${PAGE_NAME}[dp]</arg>
 <doc>Open the website homepage.</doc>
-<status status="PASS" start="2025-01-20T14:55:14.826019" elapsed="1.854989"/>
+<status status="PASS" start="2025-01-20T16:44:57.705584" elapsed="1.979179"/>
 </kw>
-<kw name="Navigate To The Selectable Page" owner="keywords_demoqa">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>//span[.='Selectable']</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-01-20T14:55:16.682001" elapsed="0.018265"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
-<arg>//span[.='Selectable']</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" start="2025-01-20T14:55:16.700497" elapsed="0.023032"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>//span[.='Selectable']</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-01-20T14:55:16.723723" elapsed="0.335570"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-01-20T14:55:17.060092" level="INFO">Clicking element '//span[.='Selectable']'.</msg>
-<arg>//span[.='Selectable']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-20T14:55:17.059572" elapsed="0.118310"/>
-</kw>
+<kw name="Verify The Page Is Correct" owner="keywords_demoqa">
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>Selectable</arg>
+<arg>${page_name}</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-20T14:55:17.178243" elapsed="0.012048"/>
+<status status="PASS" start="2025-01-20T16:44:59.685445" elapsed="0.008629"/>
 </kw>
-<doc>Navigate to the Selectable page.</doc>
-<status status="PASS" start="2025-01-20T14:55:16.681315" elapsed="0.509194"/>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${spe_loc}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-01-20T16:44:59.694277" elapsed="0.009868"/>
 </kw>
-<doc>Open the Selectable page of the Interactions section.</doc>
-<status status="PASS" start="2025-01-20T14:55:14.823333" elapsed="2.367379"/>
+<arg>${PAGE_NAME}[alt]</arg>
+<arg>spe_loc=${SPE_LOC}[alt]</arg>
+<doc>Verify the page is correct.</doc>
+<status status="PASS" start="2025-01-20T16:44:59.684996" elapsed="0.019308"/>
 </kw>
-<kw name="When I Select ${OPTION_A} And ${OPTION_B} On The List Tab" owner="keywords_demoqa" source_name="I Select ${OPTION_A} And ${OPTION_B} On The List Tab">
-<kw name="Select Options And Verify In The List Tab" owner="keywords_demoqa">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-01-20T14:55:17.196491" level="INFO">Clicking element 'demo-tab-list'.</msg>
-<arg>demo-tab-list</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-20T14:55:17.196281" elapsed="0.069585"/>
+<doc>Open the Alerts, Frame &amp; Windows page.</doc>
+<status status="PASS" start="2025-01-20T16:44:57.703353" elapsed="2.001040"/>
 </kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${option_a}[text]</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-20T14:55:17.266097" elapsed="0.008842"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-01-20T14:55:17.275574" level="INFO">Clicking element '//*[@id="verticalListContainer"]/li[3]'.</msg>
-<arg>${option_a}[locator]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-20T14:55:17.275134" elapsed="0.050071"/>
-</kw>
-<kw name="Element Attribute Value Should Be" owner="SeleniumLibrary">
-<msg time="2025-01-20T14:55:17.336392" level="INFO">Element '//*[@id="verticalListContainer"]/li[3]' attribute 'class' contains value 'mt-2 list-group-item active list-group-item-action'.</msg>
-<arg>${option_a}[locator]</arg>
-<arg>class</arg>
-<arg>mt-2 list-group-item active list-group-item-action</arg>
-<doc>Verifies element identified by ``locator`` contains expected attribute value.</doc>
-<status status="PASS" start="2025-01-20T14:55:17.325568" elapsed="0.011018"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${option_b}[text]</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-20T14:55:17.336778" elapsed="0.009399"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-01-20T14:55:17.346737" level="INFO">Clicking element '//*[@id="verticalListContainer"]/li[1]'.</msg>
-<arg>${option_b}[locator]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-20T14:55:17.346385" elapsed="0.045345"/>
-</kw>
-<kw name="Element Attribute Value Should Be" owner="SeleniumLibrary">
-<msg time="2025-01-20T14:55:17.402502" level="INFO">Element '//*[@id="verticalListContainer"]/li[1]' attribute 'class' contains value 'mt-2 list-group-item active list-group-item-action'.</msg>
-<arg>${option_b}[locator]</arg>
-<arg>class</arg>
-<arg>mt-2 list-group-item active list-group-item-action</arg>
-<doc>Verifies element identified by ``locator`` contains expected attribute value.</doc>
-<status status="PASS" start="2025-01-20T14:55:17.391984" elapsed="0.010714"/>
-</kw>
-<arg>${OPTION_A}</arg>
-<arg>${OPTION_B}</arg>
-<doc>Select options in the list tab.</doc>
-<status status="PASS" start="2025-01-20T14:55:17.195888" elapsed="0.206945"/>
-</kw>
-<doc>Select "OPTION A" and "OPTION B" on the list tab.</doc>
-<status status="PASS" start="2025-01-20T14:55:17.193367" elapsed="0.209550"/>
-</kw>
-<kw name="And I Select ${OPTION_C}, ${OPTION_D} And ${OPTION_E} On The Grid Tab" owner="keywords_demoqa" source_name="I Select ${OPTION_C}, ${OPTION_D} And ${OPTION_E} On The Grid Tab">
-<kw name="Select Options And Verify In The Grid Tab" owner="keywords_demoqa">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-01-20T14:55:17.406183" level="INFO">Clicking element 'demo-tab-grid'.</msg>
-<arg>demo-tab-grid</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-20T14:55:17.405990" elapsed="0.050360"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-01-20T14:55:17.456918" level="INFO">Clicking element '//*[@id="row1"]/li[1]'.</msg>
-<arg>${option_c}[locator]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-20T14:55:17.456578" elapsed="0.052634"/>
-</kw>
-<kw name="Element Attribute Value Should Be" owner="SeleniumLibrary">
-<msg time="2025-01-20T14:55:17.519629" level="INFO">Element '//*[@id="row1"]/li[1]' attribute 'class' contains value 'list-group-item active list-group-item-action'.</msg>
-<arg>${option_c}[locator]</arg>
-<arg>class</arg>
-<arg>list-group-item active list-group-item-action</arg>
-<doc>Verifies element identified by ``locator`` contains expected attribute value.</doc>
-<status status="PASS" start="2025-01-20T14:55:17.509479" elapsed="0.010363"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-01-20T14:55:17.520601" level="INFO">Clicking element '//*[@id="row2"]/li[2]'.</msg>
-<arg>${option_d}[locator]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-01-20T14:55:17.520226" elapsed="0.049886"/>
-</kw>
-<kw name="Element Attribute Value Should Be" owner="SeleniumLibrary">
-<msg time="2025-01-20T14:55:17.580180" level="INFO">Element '//*[@id="row2"]/li[2]' attribute 'class' contains value 'list-group-item active list-group-item-action'.</msg>
-<arg>${option_d}[locator]</arg>
-<arg>class</arg>
-<arg>list-group-item active list-group-item-action</arg>
-<doc>Verifies element identified by ``locator`` contains expected attribute value.</doc>
-<status status="PASS" start="2025-01-20T14:55:17.570315" elapsed="0.010069"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>${option_e}[text]</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2025-01-20T14:55:17.580569" elapsed="0.008558"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${option_e}[locator]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-01-20T14:55:17.589316" elapsed="0.015241"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${option_e}[locator]</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2025-01-20T14:55:17.604750" elapsed="0.290407"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-01-20T14:55:17.896648" level="INFO">Clicking element '//*[@id="row3"]/li[3]'.</msg>
-<msg time="2025-01-20T14:55:19.136682" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-117.png"&gt;&lt;img src="selenium-screenshot-117.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-01-20T14:55:19.137002" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element &lt;li class="list-group-item list-group-item-action"&gt;...&lt;/li&gt; is not clickable at point (770, 834). Other element would receive the click: &lt;iframe frameborder="0" src="https://1105e879b45aa52bf3b2ac252ada6b8e.safeframe.googlesyndication.com/safeframe/1-0-40/html/container.html" id="google_ads_iframe_/21849154601,22343295815/Ad.Plus-Anchor_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="728" height="90" data-is-safeframe="true" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="private-state-token-redemption;attribution-reporting" aria-label="Advertisement" tabindex="0" data-google-container-id="1" style="border: 0px; vertical-align: bottom;" data-load-complete="true"&gt;&lt;/iframe&gt;
-  (Session info: chrome=132.0.6834.84)
-Stacktrace:
-	GetHandleVerifier [0x00007FF6E038FBE5+28741]
-	(No symbol) [0x00007FF6E02F7890]
-	(No symbol) [0x00007FF6E0194FDA]
-	(No symbol) [0x00007FF6E01F1048]
-	(No symbol) [0x00007FF6E01EEA92]
-	(No symbol) [0x00007FF6E01EBBA1]
-	(No symbol) [0x00007FF6E01EAB01]
-	(No symbol) [0x00007FF6E01DC574]
-	(No symbol) [0x00007FF6E020FF0A]
-	(No symbol) [0x00007FF6E01DBE46]
-	(No symbol) [0x00007FF6E0210120]
-	(No symbol) [0x00007FF6E02300B4]
-	(No symbol) [0x00007FF6E020FCB3]
-	(No symbol) [0x00007FF6E01D9FB3]
-	(No symbol) [0x00007FF6E01DB331]
-	GetHandleVerifier [0x00007FF6E06CA73D+3414941]
-	GetHandleVerifier [0x00007FF6E06DE64A+3496618]
-	GetHandleVerifier [0x00007FF6E06D413D+3454365]
-	GetHandleVerifier [0x00007FF6E045848B+850155]
-	(No symbol) [0x00007FF6E03037FF]
-	(No symbol) [0x00007FF6E02FF0C4]
-	(No symbol) [0x00007FF6E02FF25D]
-	(No symbol) [0x00007FF6E02EE079]
-	BaseThreadInitThunk [0x00007FFC64EC259D+29]
-	RtlUserThreadStart [0x00007FFC65CCAF38+40]
-</msg>
-<arg>${option_e}[locator]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="FAIL" start="2025-01-20T14:55:17.895786" elapsed="1.244415">ElementClickInterceptedException: Message: element click intercepted: Element &lt;li class="list-group-item list-group-item-action"&gt;...&lt;/li&gt; is not clickable at point (770, 834). Other element would receive the click: &lt;iframe frameborder="0" src="https://1105e879b45aa52bf3b2ac252ada6b8e.safeframe.googlesyndication.com/safeframe/1-0-40/html/container.html" id="google_ads_iframe_/21849154601,22343295815/Ad.Plus-Anchor_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="728" height="90" data-is-safeframe="true" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="private-state-token-redemption;attribution-reporting" aria-label="Advertisement" tabindex="0" data-google-container-id="1" style="border: 0px; vertical-align: bottom;" data-load-complete="true"&gt;&lt;/iframe&gt;
-  (Session info: chrome=132.0.6834.84)
-Stacktrace:
-	GetHandleVerifier [0x00007FF6E038FBE5+28741]
-	(No symbol) [0x00007FF6E02F7890]
-	(No symbol) [0x00007FF6E0194FDA]
-	(No symbol) [0x00007FF6E01F1048]
-	(No symbol) [0x00007FF6E01EEA92]
-	(No symbol) [0x00007FF6E01EBBA1]
-	(No symbol) [0x00007FF6E01EAB01]
-	(No symbol) [0x00007FF6E01DC574]
-	(No symbol) [0x00007FF6E020FF0A]
-	(No symbol) [0x00007FF6E01DBE46]
-	(No symbol) [0x00007FF6E0210120]
-	(No symbol) [0x00007FF6E02300B4]
-	(No symbol) [0x00007FF6E020FCB3]
-	(No symbol) [0x00007FF6E01D9FB3]
-	(No symbol) [0x00007FF6E01DB331]
-	GetHandleVerifier [0x00007FF6E06CA73D+3414941]
-	GetHandleVerifier [0x00007FF6E06DE64A+3496618]
-	GetHandleVerifier [0x00007FF6E06D413D+3454365]
-	GetHandleVerifier [0x00007FF6E045848B+850155]
-	(No symbol) [0x00007FF6E03037FF]
-	(No symbol) [0x00007FF6E02FF0C4]
-	(No symbol) [0x00007FF6E02FF25D]
-	(No symbol) [0x00007FF6E02EE079]
-	BaseThreadInitThunk [0x00007FFC64EC259D+29]
-	RtlUserThreadStart [0x00007FFC65CCAF38+40]
-</status>
-</kw>
-<kw name="Element Attribute Value Should Be" owner="SeleniumLibrary">
-<arg>${option_e}[locator]</arg>
-<arg>class</arg>
-<arg>list-group-item active list-group-item-action</arg>
-<doc>Verifies element identified by ``locator`` contains expected attribute value.</doc>
-<status status="NOT RUN" start="2025-01-20T14:55:19.140429" elapsed="0.000217"/>
-</kw>
-<arg>${OPTION_C}</arg>
-<arg>${OPTION_D}</arg>
-<arg>${OPTION_E}</arg>
-<doc>Select options in the grid tab.</doc>
-<status status="FAIL" start="2025-01-20T14:55:17.405667" elapsed="1.735183">ElementClickInterceptedException: Message: element click intercepted: Element &lt;li class="list-group-item list-group-item-action"&gt;...&lt;/li&gt; is not clickable at point (770, 834). Other element would receive the click: &lt;iframe frameborder="0" src="https://1105e879b45aa52bf3b2ac252ada6b8e.safeframe.googlesyndication.com/safeframe/1-0-40/html/container.html" id="google_ads_iframe_/21849154601,22343295815/Ad.Plus-Anchor_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="728" height="90" data-is-safeframe="true" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="private-state-token-redemption;attribution-reporting" aria-label="Advertisement" tabindex="0" data-google-container-id="1" style="border: 0px; vertical-align: bottom;" data-load-complete="true"&gt;&lt;/iframe&gt;
-  (Session info: chrome=132.0.6834.84)
-Stacktrace:
-	GetHandleVerifier [0x00007FF6E038FBE5+28741]
-	(No symbol) [0x00007FF6E02F7890]
-	(No symbol) [0x00007FF6E0194FDA]
-	(No symbol) [0x00007FF6E01F1048]
-	(No symbol) [0x00007FF6E01EEA92]
-	(No symbol) [0x00007FF6E01EBBA1]
-	(No symbol) [0x00007FF6E01EAB01]
-	(No symbol) [0x00007FF6E01DC574]
-	(No symbol) [0x00007FF6E020FF0A]
-	(No symbol) [0x00007FF6E01DBE46]
-	(No symbol) [0x00007FF6E0210120]
-	(No symbol) [0x00007FF6E02300B4]
-	(No symbol) [0x00007FF6E020FCB3]
-	(No symbol) [0x00007FF6E01D9FB3]
-	(No symbol) [0x00007FF6E01DB331]
-	GetHandleVerifier [0x00007FF6E06CA73D+3414941]
-	GetHandleVerifier [0x00007FF6E06DE64A+3496618]
-	GetHandleVerifier [0x00007FF6E06D413D+3454365]
-	GetHandleVerifier [0x00007FF6E045848B+850155]
-	(No symbol) [0x00007FF6E03037FF]
-	(No symbol) [0x00007FF6E02FF0C4]
-	(No symbol) [0x00007FF6E02FF25D]
-	(No symbol) [0x00007FF6E02EE079]
-	BaseThreadInitThunk [0x00007FFC64EC259D+29]
-	RtlUserThreadStart [0x00007FFC65CCAF38+40]
-</status>
-</kw>
-<doc>Select "OPTION C" on the grid tab.</doc>
-<status status="FAIL" start="2025-01-20T14:55:17.404248" elapsed="1.736806">ElementClickInterceptedException: Message: element click intercepted: Element &lt;li class="list-group-item list-group-item-action"&gt;...&lt;/li&gt; is not clickable at point (770, 834). Other element would receive the click: &lt;iframe frameborder="0" src="https://1105e879b45aa52bf3b2ac252ada6b8e.safeframe.googlesyndication.com/safeframe/1-0-40/html/container.html" id="google_ads_iframe_/21849154601,22343295815/Ad.Plus-Anchor_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="728" height="90" data-is-safeframe="true" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="private-state-token-redemption;attribution-reporting" aria-label="Advertisement" tabindex="0" data-google-container-id="1" style="border: 0px; vertical-align: bottom;" data-load-complete="true"&gt;&lt;/iframe&gt;
-  (Session info: chrome=132.0.6834.84)
-Stacktrace:
-	GetHandleVerifier [0x00007FF6E038FBE5+28741]
-	(No symbol) [0x00007FF6E02F7890]
-	(No symbol) [0x00007FF6E0194FDA]
-	(No symbol) [0x00007FF6E01F1048]
-	(No symbol) [0x00007FF6E01EEA92]
-	(No symbol) [0x00007FF6E01EBBA1]
-	(No symbol) [0x00007FF6E01EAB01]
-	(No symbol) [0x00007FF6E01DC574]
-	(No symbol) [0x00007FF6E020FF0A]
-	(No symbol) [0x00007FF6E01DBE46]
-	(No symbol) [0x00007FF6E0210120]
-	(No symbol) [0x00007FF6E02300B4]
-	(No symbol) [0x00007FF6E020FCB3]
-	(No symbol) [0x00007FF6E01D9FB3]
-	(No symbol) [0x00007FF6E01DB331]
-	GetHandleVerifier [0x00007FF6E06CA73D+3414941]
-	GetHandleVerifier [0x00007FF6E06DE64A+3496618]
-	GetHandleVerifier [0x00007FF6E06D413D+3454365]
-	GetHandleVerifier [0x00007FF6E045848B+850155]
-	(No symbol) [0x00007FF6E03037FF]
-	(No symbol) [0x00007FF6E02FF0C4]
-	(No symbol) [0x00007FF6E02FF25D]
-	(No symbol) [0x00007FF6E02EE079]
-	BaseThreadInitThunk [0x00007FFC64EC259D+29]
-	RtlUserThreadStart [0x00007FFC65CCAF38+40]
-</status>
-</kw>
-<kw name="Then I Should Be Able To See All The Items Selected Back In The Lab Tab" owner="keywords_demoqa">
-<doc>Verify all the items are selected in both tabs.</doc>
-<status status="NOT RUN" start="2025-01-20T14:55:19.142534" elapsed="0.001117"/>
-</kw>
-<status status="FAIL" start="2025-01-20T14:55:14.822248" elapsed="4.322554">ElementClickInterceptedException: Message: element click intercepted: Element &lt;li class="list-group-item list-group-item-action"&gt;...&lt;/li&gt; is not clickable at point (770, 834). Other element would receive the click: &lt;iframe frameborder="0" src="https://1105e879b45aa52bf3b2ac252ada6b8e.safeframe.googlesyndication.com/safeframe/1-0-40/html/container.html" id="google_ads_iframe_/21849154601,22343295815/Ad.Plus-Anchor_0" title="3rd party ad content" name="" scrolling="no" marginwidth="0" marginheight="0" width="728" height="90" data-is-safeframe="true" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="private-state-token-redemption;attribution-reporting" aria-label="Advertisement" tabindex="0" data-google-container-id="1" style="border: 0px; vertical-align: bottom;" data-load-complete="true"&gt;&lt;/iframe&gt;
-  (Session info: chrome=132.0.6834.84)
-Stacktrace:
-	GetHandleVerifier [0x00007FF6E038FBE5+28741]
-	(No symbol) [0x00007FF6E02F7890]
-	(No symbol) [0x00007FF6E0194FDA]
-	(No symbol) [0x00007FF6E01F1048]
-	(No symbol) [0x00007FF6E01EEA92]
-	(No symbol) [0x00007FF6E01EBBA1]
-	(No symbol) [0x00007FF6E01EAB01]
-	(No symbol) [0x00007FF6E01DC574]
-	(No symbol) [0x00007FF6E020FF0A]
-	(No symbol) [0x00007FF6E01DBE46]
-	(No symbol) [0x00007FF6E0210120]
-	(No symbol) [0x00007FF6E02300B4]
-	(No symbol) [0x00007FF6E020FCB3]
-	(No symbol) [0x00007FF6E01D9FB3]
-	(No symbol) [0x00007FF6E01DB331]
-	GetHandleVerifier [0x00007FF6E06CA73D+3414941]
-	GetHandleVerifier [0x00007FF6E06DE64A+3496618]
-	GetHandleVerifier [0x00007FF6E06D413D+3454365]
-	GetHandleVerifier [0x00007FF6E045848B+850155]
-	(No symbol) [0x00007FF6E03037FF]
-	(No symbol) [0x00007FF6E02FF0C4]
-	(No symbol) [0x00007FF6E02FF25D]
-	(No symbol) [0x00007FF6E02EE079]
-	BaseThreadInitThunk [0x00007FFC64EC259D+29]
-	RtlUserThreadStart [0x00007FFC65CCAF38+40]
-</status>
+<doc>This test verifies the user can interact with the Alerts page</doc>
+<status status="PASS" start="2025-01-20T16:44:57.702353" elapsed="2.003591"/>
 </test>
 <doc>Test cases for DemoQA</doc>
-<status status="FAIL" start="2025-01-20T14:55:14.338478" elapsed="4.811074"/>
+<status status="PASS" start="2025-01-20T16:44:57.187886" elapsed="2.519005"/>
 </suite>
-<status status="FAIL" start="2025-01-20T14:55:14.336055" elapsed="4.814944"/>
+<status status="PASS" start="2025-01-20T16:44:57.185984" elapsed="2.522478"/>
 </suite>
-<status status="FAIL" start="2025-01-20T14:55:14.319525" elapsed="4.832601"/>
+<status status="PASS" start="2025-01-20T16:44:57.167756" elapsed="2.541586"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Robot-Framework-Init" id="s1" pass="0" fail="1" skip="0">Robot-Framework-Init</stat>
-<stat name="Tests" id="s1-s1" pass="0" fail="1" skip="0">Robot-Framework-Init.Tests</stat>
-<stat name="Test Demoqa" id="s1-s1-s1" pass="0" fail="1" skip="0">Robot-Framework-Init.Tests.Test Demoqa</stat>
+<stat name="Robot-Framework-Init" id="s1" pass="1" fail="0" skip="0">Robot-Framework-Init</stat>
+<stat name="Tests" id="s1-s1" pass="1" fail="0" skip="0">Robot-Framework-Init.Tests</stat>
+<stat name="Test Demoqa" id="s1-s1-s1" pass="1" fail="0" skip="0">Robot-Framework-Init.Tests.Test Demoqa</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-01-20T14:55:14.812022" level="ERROR">Error in file 'C:\Users\Administrateur\Desktop\robot-framework-init\resources\libraries.resource' on line 8: Importing library 'Random' failed: ModuleNotFoundError: No module named 'Random'
+<msg time="2025-01-20T16:44:57.681837" level="ERROR">Error in file 'C:\Users\Administrateur\Desktop\robot-framework-init\resources\libraries.resource' on line 8: Importing library 'Random' failed: ModuleNotFoundError: No module named 'Random'
 Traceback (most recent call last):
   None
 PYTHONPATH:
