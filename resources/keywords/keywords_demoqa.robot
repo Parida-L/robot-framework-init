@@ -1,6 +1,6 @@
 *** Settings ***
 Resource         ../libraries.resource
-Resource         ../variables.robot
+Resource         ../variables.resource
 Resource         ../keywords/keywords_common.robot
 
 *** Keywords ***
@@ -29,7 +29,7 @@ I Register From The Bookstore Login Page
     Navigate To The Register Page
     ${unique_username}=    Generate Unique Username    Scarface
     Fill The Registration Form    ${unique_username}
-    Verify The Alert Message
+    Verify The Alert Message    ${ALERT_MSG}[bk]
 
 I Am Redirected To The Main Page
     [Documentation]    Redirect to the main page.
@@ -81,6 +81,8 @@ I Should Be Able To See The Date Selected
      Verify The Date And Time Selected
      Close Browser
 
+#ALERTS
+
 I Am On The Alerts, Frame & Windows Page
     [Documentation]    Open the Alerts, Frame & Windows page.
     Open Website Homepage    ${DMQ_URL}[alt]    ${PAGE_NAME}[dp]
@@ -88,13 +90,41 @@ I Am On The Alerts, Frame & Windows Page
 
 I Click On Each Button And Verify The Alerts
     [Documentation]    Click on each button and verify the alerts.
-    # To be implemented
-    # Click On Each Button And Verify The Alerts
+    Click On Button To See The Alert    ${BUTTON}[1]
+    Verify The Alert Message    ${ALERT_MSG}[1]
+    Click On Button To See The Alert     ${BUTTON}[2]
+    Verify The Alert Message Appears After 5s    ${ALERT_MSG}[2]
+    Click On Button To See The Alert    ${BUTTON}[3]
+    Confirm The Box Message Appears    ${ALERT_MSG}[3]
+    Click On Button To See The Alert    ${BUTTON}[4]
+    Verify The Prompt Box Message Appears    ${input_name}
 
-I Should Be Able To See The Corresponding Alerts
-    [Documentation]    Verify the corresponding alerts.
-    # To be implemented
+I Should Be Able To See The Confirming Messages
+    [Documentation]    Verify the confirmation messages are displayed.
+    Verify The Confirmation Message For The Box    ${confirm_msg}
+    Verify The Confirmation Message For The Prompt Box    ${prompt_msg}    ${input_name}
+    Close Browser
 
+#ELEMENTS
+
+I Am On Checkbox Elements Page
+    [Documentation]    Open the Checkbox Elements page.
+    Open Website Homepage    ${DMQ_URL}[cb]    ${PAGE_NAME}[cb]
+    Verify The Page Is Correct   ${PAGE_NAME}[cb]    spe_loc=${SPE_LOC}[cb]
+
+I Select All Checkboxes Except ${CHECKBOX_A} And ${CHECKBOX_B}
+    [Documentation]    Select all checkboxes except "CHECKBOX A" and "CHECKBOX B".
+    Expand The List Of Checkboxes
+    Select All Checkboxes
+    #Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
+    Execute Javascript    window.scrollBy(0,300);
+    Click Element    ${CHECKBOX_A}
+    Click Element    ${CHECKBOX_B}
+
+I Should Be Able To See The Items Selected
+    [Documentation]    Verify the items are selected.
+    Verify The Correct Checkboxes Are Unchecked
+    Close Browser
 
 #SOUS KEYWORDS    
 
@@ -152,7 +182,8 @@ Fill The Registration Form
 
 Verify The Alert Message
     [Documentation]    Verify the alert message.
-    Alert Should Be Present    text=User Register Successfully.
+    [Arguments]    ${alert_msg}
+    Alert Should Be Present    ${alert_msg}
 
 Navigate To The Selectable Page
     [Documentation]    Navigate to the Selectable page.
@@ -218,3 +249,71 @@ Verify The Date And Time Selected
         Wait Until Page Contains Element    xpath=//*[@id="dateAndTimePickerInput"]
         ${selected_date}=    Get Value    xpath=//*[@id="dateAndTimePickerInput"]
         Should Be Equal As Strings    ${selected_date}    November 5, 2025 11:45 PM
+
+Click On Button To See The Alert
+        [Documentation]    Click on the button to see the alert.
+        [Arguments]    ${button}
+        Wait Until Page Contains Element    ${button}
+        Click Element    ${button}
+
+Verify The Alert Message Appears After 5s
+        [Documentation]    Verify the alert message appears after 5 seconds.
+        [Arguments]    ${alert_msg}
+        Alert Should Be Present    ${alert_msg}    timeout=5s
+
+Confirm The Box Message Appears
+        [Documentation]    Confirm the box message appears.
+        [Arguments]    ${alert_msg}
+        Alert Should Be Present    ${alert_msg}    action=accept
+
+Verify The Prompt Box Message Appears
+        [Documentation]    Verify the prompt box message appears.
+        [Arguments]   ${input_name}
+        Input Text Into Alert    ${input_name}    action=accept
+
+Verify The Confirmation Message For The Box
+        [Documentation]    Verify the confirmation message for the box.
+        [Arguments]    ${confirm_msg}
+        Wait Until Page Contains    text=${confirm_msg}
+
+Verify The Confirmation Message For The Prompt Box
+        [Documentation]    Verify the confirmation message for the prompt box.
+        [Arguments]    ${prompt_msg}    ${input_name}
+        Wait Until Page Contains    text=${prompt_msg} ${input_name}
+
+Expand The List Of Checkboxes
+        [Documentation]    Expand the list of checkboxes.
+        Wait Until Page Contains Element    //*[@id="tree-node"]/div/button[1]
+        Click Element    //*[@id="tree-node"]/div/button[1]
+
+Select All Checkboxes
+        [Documentation]    Select all checkboxes.
+        Wait Until Page Contains Element    //*[@id="tree-node"]/ol/li/span/label/span[1]
+        Click Element    //*[@id="tree-node"]/ol/li/span/label/span[1]
+
+Verify The Correct Checkboxes Are Unchecked
+        [Documentation]    Verify the correct checkboxes are unchecked.
+        Page Should Contain    text=You have selected :
+        Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
+        # FOR    ${index}    IN RANGE    2    ${len(${Expected Results}) + 2}
+        #     ${expected_text}=    Set Variable    ${Expected Results[${index}-2]}
+        #     Element Attribute Value Should Be    xpath=//*[@id="result"]/span[${index}]    class    text-success
+        #     Element Text Should Be    xpath=//*[@id="result"]/span[${index}]    ${expected_text}
+        # END
+        Element Attribute Value Should Be    //*[@id="result"]/span[2]    class    text-success
+        Element Text Should Be    //*[@id="result"]/span[2]    desktop
+        Element Attribute Value Should Be    //*[@id="result"]/span[3]   class    text-success
+        Element Text Should Be    //*[@id="result"]/span[3]    notes
+        Element Attribute Value Should Be    //*[@id="result"]/span[4]    class    text-success
+        Element Text Should Be    //*[@id="result"]/span[4]    commands
+        Element Attribute Value Should Be    //*[@id="result"]/span[5]    class    text-success
+        Element Text Should Be    //*[@id="result"]/span[5]    workspace
+        Element Attribute Value Should Be    //*[@id="result"]/span[6]    class    text-success
+        Element Text Should Be    //*[@id="result"]/span[6]    react
+        Element Attribute Value Should Be    //*[@id="result"]/span[7]    class    text-success
+        Element Text Should Be    //*[@id="result"]/span[7]    angular
+        Element Attribute Value Should Be    //*[@id="result"]/span[8]    class    text-success
+        Element Text Should Be    //*[@id="result"]/span[8]    veu
+        Element Attribute Value Should Be    //*[@id="result"]/span[9]    class    text-success
+        Element Text Should Be    //*[@id="result"]/span[9]    wordFile
+

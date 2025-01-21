@@ -38,16 +38,17 @@ Scenario: Test the alerts page
     [Documentation]    This test verifies the user can interact with the Alerts page
 # # Dans l'onglet alerts, frame & Windows > aller sur alerts et cliquer sur chaque bouton avec les instructions demander et 
 # # assurez vous que l'action est correct (ex : je vérifie que sur le bouton avec la valeur "On button click, prompt box will appear" il y a bien le nom affiché en vert)
-     Given I Am On The Alerts, Frame & Windows Page
-#     When I Click On Each Button And Verify The Alerts
-#     Then I Should Be Able To See The Corresponding Alerts
+    Given I Am On The Alerts, Frame & Windows Page
+    When I Click On Each Button And Verify The Alerts
+    Then I Should Be Able To See The Confirming Messages
 
-# Scenario: Test the elements page
+Scenario: Test the elements page
+    [Documentation]    This test verifies the user can interact with the Elements page
 # # ensuite refaite l'étape des checkbox (je sais que vous aimez) 
 # # Eléments > Check box > Sélectionner tous les éléments SAUF Office et Excel file.doc
-#     Given I Am On The Elements Page
-#     When I Select All Checkboxes Except "Office" And "Excel file.doc"
-#     Then I Should Be Able To See The Items Selected
+    Given I Am On Checkbox Elements Page
+    When I Select All Checkboxes Except ${CHECKBOX_A} And ${CHECKBOX_B}
+    Then I Should Be Able To See The Items Selected
 
 
 

@@ -1,6 +1,6 @@
 *** Settings ***
 Resource         ../libraries.resource
-Resource         ../variables.robot
+Resource         ../variables.resource
 Resource         ../keywords/keywords_common.robot
 
 *** Keywords ***

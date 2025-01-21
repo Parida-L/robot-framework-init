@@ -1,6 +1,6 @@
 *** Settings ***
 Resource         ../libraries.resource
-Resource         ../variables.robot
+Resource         ../variables.resource
 
 *** Keywords ***
 Navigate To Login Page

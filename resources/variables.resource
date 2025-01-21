@@ -9,7 +9,7 @@
 ${BROWSER}               chrome
 ${TIMEOUT}               10s
 
-#AMAZON
+#AMAZON    
 ${LOGIN_LOCATOR}         //*[@id="nav-link-accountList"]
 ${LOGIN_INPUT_LOCATOR}   //*[@id="authportal-main-section"]/div[2]/div[2]/div[1]/form/div/div/div/div[1]/label
 ${LOGIN_INPUT_NAME}      e-mail
@@ -41,12 +41,23 @@ ${ITEM_CART_ASS}     BONNET
 &{DMQ_URL}         bk=https://demoqa.com/books    log=https://demoqa.com/login    sel=https://demoqa.com/selectable    dp=https://demoqa.com/date-picker    alt=https://demoqa.com/alerts    cb=https://demoqa.com/checkbox    reg=https://demoqa.com/register    int=https://demoqa.com/interaction   
 ${BOOK_TITLE}      Designing Evolvable
 ${AUTHOR}          Glenn Block et al.
-&{PAGE_NAME}       bk=Book Store    log=Login    reg=Register   sel=Selectable    int=Interactions    
+&{PAGE_NAME}       bk=Book Store    log=Login    reg=Register   sel=Selectable    int=Interactions    cb=Check Box 
 ...    dp=Date Picker    alt=Alerts
-&{SPE_LOC}         bk=//*[@id="searchBox"]    log=//*[@id="login"]    reg=//*[@id="newUser"]    
-...    dp=//input[@id='datePickerMonthYearInput']    alt=//span[.='Alerts']
+&{SPE_LOC}         bk=//*[@id="searchBox"]    log=//*[@id="login"]    reg=//*[@id="newUser"]
+...    dp=//input[@id='datePickerMonthYearInput']    alt=//span[.='Alerts']    cb=//span[.='Check Box']
 &{OPTION_A}        text=Morbi leo risus    locator=//*[@id="verticalListContainer"]/li[3]
 &{OPTION_B}        text=Cras justo odio    locator=//*[@id="verticalListContainer"]/li[1]
 &{OPTION_C}        text=One    locator=//*[@id="row1"]/li[1]
 &{OPTION_D}        text=Five    locator=//*[@id="row2"]/li[2]
 &{OPTION_E}        text=Nine    locator=//*[@id="row3"]/li[3]
+
+&{BUTTON}          1=//button[@id='alertButton']    2=//button[@id='timerAlertButton']    
+...    3=//button[@id='confirmButton']    4=//button[@id='promtButton']
+&{ALERT_MSG}    bk=User Register Successfully.    1=You clicked a button    2=This alert appeared after 5 seconds    
+...    3=Do you confirm action?    4=Please enter your name
+${INPUT_NAME}    John J
+${CONFIRM_MSG}    You selected Ok
+${PROMPT_MSG}    You entered
+${CHECKBOX_A}    //*[@id="tree-node"]/ol/li/ol/li[2]/ol/li[2]/span/label/span[1]
+${CHECKBOX_B}    //*[@id="tree-node"]/ol/li/ol/li[3]/ol/li[2]/span/label/span[1]
+@{EXPECTED_RESULTS}    desktop    notes    commands    workspace    react    angular    veu    wordFile

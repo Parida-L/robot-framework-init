@@ -1,8 +1,7 @@
 *** Settings ***
 Library    Collections
+Library    String
+Library    BuiltIn
 Library    SeleniumLibrary
 Library    RequestsLibrary
-Library    String
-Library    Collections
-Library    BuiltIn
-Library    Random
+
