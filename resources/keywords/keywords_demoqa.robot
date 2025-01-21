@@ -4,9 +4,10 @@ Resource         ../variables.resource
 Resource         ../keywords/keywords_common.robot
 
 *** Keywords ***
-#GHERKIN   
+# GHERKIN
 
-#BOOKSTORE
+# BOOKSTORE
+
 I Am On The Bookstore Application
     [Documentation]    Open the Bookstore application.
     Open Website Homepage    ${DMQ_URL}[bk]    ${PAGE_NAME}[bk]
@@ -21,7 +22,8 @@ I Should Be Able To See The Corresponding Author
     Verify The Correct Book Is Displayed    ${BOOK_TITLE}    ${AUTHOR}
     Close Browser
 
-#LOGIN
+# LOGIN
+
 I Register From The Bookstore Login Page
     [Documentation]    Register a new user from the bookstore login page.
     Open Website Homepage    ${DMQ_URL}[log]    ${PAGE_NAME}[log]
@@ -42,7 +44,7 @@ The Correct Username Placeholder Should Be Present
     Should Be Equal    ${placeholder_text}    UserName
     Close Browser
 
-#INTERACTIONS
+# INTERACTIONS
 
 I Am On The Selectable Of Interactions Page
     [Documentation]    Open the Selectable page of the Interactions section.
@@ -55,7 +57,7 @@ I Select ${OPTION_A} And ${OPTION_B} On The List Tab
     Verify The Options Are Selected In The List Tab    ${OPTION_A}    ${OPTION_B}
 
 I Select ${OPTION_C}, ${OPTION_D} And ${OPTION_E} On The Grid Tab
-    [Documentation]    Select "OPTION C" on the grid tab.
+    [Documentation]    Select different options on the grid tab.
     Select Options And Verify In The Grid Tab    ${OPTION_C}    ${OPTION_D}    ${OPTION_E}
 
 I Should Be Able To See All The Items Selected Back In The Lab Tab
@@ -64,7 +66,7 @@ I Should Be Able To See All The Items Selected Back In The Lab Tab
     Verify The Options Are Selected In The List Tab    ${OPTION_A}    ${OPTION_B}
     Close Browser
 
-#WIDGETS
+# WIDGETS
 
 I Am On The Date Picker Of Widgets Page
     [Documentation]    Open the Date Picker page of the Widgets section.
@@ -81,7 +83,7 @@ I Should Be Able To See The Date Selected
      Verify The Date And Time Selected
      Close Browser
 
-#ALERTS
+# ALERTS
 
 I Am On The Alerts, Frame & Windows Page
     [Documentation]    Open the Alerts, Frame & Windows page.
@@ -105,7 +107,7 @@ I Should Be Able To See The Confirming Messages
     Verify The Confirmation Message For The Prompt Box    ${prompt_msg}    ${input_name}
     Close Browser
 
-#ELEMENTS
+# ELEMENTS
 
 I Am On Checkbox Elements Page
     [Documentation]    Open the Checkbox Elements page.
@@ -116,7 +118,6 @@ I Select All Checkboxes Except ${CHECKBOX_A} And ${CHECKBOX_B}
     [Documentation]    Select all checkboxes except "CHECKBOX A" and "CHECKBOX B".
     Expand The List Of Checkboxes
     Select All Checkboxes
-    #Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Execute Javascript    window.scrollBy(0,300);
     Click Element    ${CHECKBOX_A}
     Click Element    ${CHECKBOX_B}
@@ -126,7 +127,7 @@ I Should Be Able To See The Items Selected
     Verify The Correct Checkboxes Are Unchecked
     Close Browser
 
-#SOUS KEYWORDS    
+# SOUS KEYWORDS    
 
 Verify The Page Is Correct
     [Documentation]    Verify the page is correct.
@@ -222,10 +223,7 @@ Select Options And Verify In The Grid Tab
     ...    list-group-item active list-group-item-action
     Wait Until Page Contains        ${option_e}[text]
     Wait Until Element Is Visible    ${option_e}[locator]
-    #Scroll Element Into View    ${option_e}[locator]
-    #${element}=    Get Webelement    xpath=//*[@id="row3"]/li[3]
-    #Execute Javascript    arguments[0].scrollIntoView(true);    ${element}
-    Execute Javascript    document.evaluate("//*[@id='row3']/li[3]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.scrollIntoView(true);
+    Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
     Click Element                   ${option_e}[locator]
     Element Attribute Value Should Be    ${option_e}[locator]    class
     ...    list-group-item active list-group-item-action
@@ -294,26 +292,14 @@ Select All Checkboxes
 Verify The Correct Checkboxes Are Unchecked
         [Documentation]    Verify the correct checkboxes are unchecked.
         Page Should Contain    text=You have selected :
+        # Retrieve the number of results expected
+        ${result_count}=    Get Length    ${Expected Results}
+        # Scroll
         Execute Javascript    window.scrollTo(0, document.body.scrollHeight);
-        # FOR    ${index}    IN RANGE    2    ${len(${Expected Results}) + 2}
-        #     ${expected_text}=    Set Variable    ${Expected Results[${index}-2]}
-        #     Element Attribute Value Should Be    xpath=//*[@id="result"]/span[${index}]    class    text-success
-        #     Element Text Should Be    xpath=//*[@id="result"]/span[${index}]    ${expected_text}
-        # END
-        Element Attribute Value Should Be    //*[@id="result"]/span[2]    class    text-success
-        Element Text Should Be    //*[@id="result"]/span[2]    desktop
-        Element Attribute Value Should Be    //*[@id="result"]/span[3]   class    text-success
-        Element Text Should Be    //*[@id="result"]/span[3]    notes
-        Element Attribute Value Should Be    //*[@id="result"]/span[4]    class    text-success
-        Element Text Should Be    //*[@id="result"]/span[4]    commands
-        Element Attribute Value Should Be    //*[@id="result"]/span[5]    class    text-success
-        Element Text Should Be    //*[@id="result"]/span[5]    workspace
-        Element Attribute Value Should Be    //*[@id="result"]/span[6]    class    text-success
-        Element Text Should Be    //*[@id="result"]/span[6]    react
-        Element Attribute Value Should Be    //*[@id="result"]/span[7]    class    text-success
-        Element Text Should Be    //*[@id="result"]/span[7]    angular
-        Element Attribute Value Should Be    //*[@id="result"]/span[8]    class    text-success
-        Element Text Should Be    //*[@id="result"]/span[8]    veu
-        Element Attribute Value Should Be    //*[@id="result"]/span[9]    class    text-success
-        Element Text Should Be    //*[@id="result"]/span[9]    wordFile
+        # Loop through the results and verify the text and class
+        FOR    ${index}    IN RANGE    2    ${result_count + 2}
+            ${expected_text}=    Set Variable    ${Expected Results[${index}-2]}
+            Element Attribute Value Should Be    xpath=//*[@id="result"]/span[${index}]    class    text-success
+            Element Text Should Be    xpath=//*[@id="result"]/span[${index}]    ${expected_text}
+        END
 

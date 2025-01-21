@@ -9,7 +9,7 @@
 ${BROWSER}               chrome
 ${TIMEOUT}               10s
 
-#AMAZON    
+# AMAZON    
 ${LOGIN_LOCATOR}         //*[@id="nav-link-accountList"]
 ${LOGIN_INPUT_LOCATOR}   //*[@id="authportal-main-section"]/div[2]/div[2]/div[1]/form/div/div/div/div[1]/label
 ${LOGIN_INPUT_NAME}      e-mail
@@ -22,7 +22,7 @@ ${PASSWORD_INPUT_NAME}   Mot de passe
 &{CONTINUE}              amz=//*[@id="signInSubmit"]    sd=//*[@id="login-button"]
 &{WELCOME_TEXT}          amz=Bonjour Damien    sd=Swag Labs
 
-#DECATH
+# DECATH
 ${ITEM_LOCATOR}      //*[@id="app"]/main/div[2]/section[2]/div/div[1]
 ${ADD_CART_LOCATOR}  //*[@id="app"]/main/div[2]/section[2]/div/div[1]/div[4]/div/div/button
 ${FIRST_CARD_LOC}    //*[@id="vtmn-modal-description"]/div/div[2]/div[1]/div/span
@@ -32,11 +32,11 @@ ${CART_ICON}         //*[@id="app"]/header/div[1]/nav[1]/div[4]/div[5]/a
 ${CART_ASSERT}       Panier
 ${ITEM_CART_ASS}     BONNET
 
-#SAUCE DEMO
+# SAUCE DEMO
 &{SD_LOGIN}        std=standard_user    lck=locked_out_user
 
 
-#DEMOQA
+# DEMOQA
 
 &{DMQ_URL}         bk=https://demoqa.com/books    log=https://demoqa.com/login    sel=https://demoqa.com/selectable    dp=https://demoqa.com/date-picker    alt=https://demoqa.com/alerts    cb=https://demoqa.com/checkbox    reg=https://demoqa.com/register    int=https://demoqa.com/interaction   
 ${BOOK_TITLE}      Designing Evolvable
